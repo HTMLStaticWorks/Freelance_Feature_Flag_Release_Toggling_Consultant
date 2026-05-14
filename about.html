@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About FlagMasters | Expert Feature Flag Consultant</title>
+    <meta name="description" content="Meet the expert behind FlagMasters. Learn about my journey, expertise in release toggling, and philosophy on continuous delivery.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D5EF3',
+                        secondary: '#0F172A',
+                        accent: '#6D5EF3',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                    <i data-lucide="toggle-right" class="text-white"></i>
+                </div>
+                <span class="text-2xl font-bold font-['Outfit'] tracking-tight">Flag<span class="text-primary">Masters</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <div class="flex space-x-6">
+                    <a href="index.html" class="nav-link font-medium hover:text-primary">Home1</a>
+                    <a href="home2.html" class="nav-link font-medium hover:text-primary">Home2</a>
+                    <a href="about.html" class="nav-link font-medium text-primary">About</a>
+                    <a href="services.html" class="nav-link font-medium hover:text-primary">Services</a>
+                    <a href="case-studies.html" class="nav-link font-medium hover:text-primary">Case Studies</a>
+                    <a href="blog.html" class="nav-link font-medium hover:text-primary">Blog</a>
+                    <a href="dashboard.html" class="nav-link font-medium hover:text-primary">Dashboard</a>
+                    <a href="contact.html" class="nav-link font-medium hover:text-primary">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4 border-l border-slate-700 pl-6 ml-4">
+                    <a href="login.html" class="text-sm font-semibold hover:text-primary transition-colors">Login</a>
+                    
+                    <!-- Toggles -->
+                    <div class="flex space-x-2">
+                        <button class="theme-toggle p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" title="Toggle Theme">
+                            <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        </button>
+                        <button class="rtl-toggle p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" title="Toggle RTL">
+                            <i data-lucide="languages" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden flex-col bg-slate-900/95 backdrop-blur-xl absolute top-full left-0 w-full p-6 space-y-4 border-b border-slate-800">
+            <a href="index.html" class="text-lg font-medium">Home1</a>
+            <a href="home2.html" class="text-lg font-medium">Home2</a>
+            <a href="about.html" class="text-lg font-medium text-primary">About</a>
+            <a href="services.html" class="text-lg font-medium">Services</a>
+            <a href="case-studies.html" class="text-lg font-medium">Case Studies</a>
+            <a href="blog.html" class="text-lg font-medium">Blog</a>
+            <a href="dashboard.html" class="text-lg font-medium">Dashboard</a>
+            <a href="contact.html" class="text-lg font-medium">Contact</a>
+            <div class="pt-4 flex flex-col space-y-3">
+                <a href="login.html" class="text-center py-3 border border-slate-700 rounded-xl">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- 1. Hero Section -->
+        <section class="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
+            <!-- Background Image with Cinematic Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" alt="About Hero" class="w-full h-full object-cover scale-105 animate-slow-zoom">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#0F172A]/85 via-[#6D5EF3]/20 to-[#0F172A]/85 backdrop-blur-[1px]"></div>
+            </div>
+
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl lg:text-7xl font-bold mb-8 reveal text-white drop-shadow-2xl">The Architect of <span class="text-gradient">Continuous Control</span></h1>
+                <p class="text-xl text-slate-200 max-w-3xl mx-auto reveal delay-200 drop-shadow-lg">
+                    Helping engineering leaders sleep better by implementing bulletproof feature flag strategies and release toggling systems.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. Personal Story Section -->
+        <section class="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="lg:flex items-center space-x-16">
+                    <div class="lg:w-1/2 mb-12 lg:mb-0 reveal">
+                        <div class="relative">
+                            <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-[60px]"></div>
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="The Consultant" class="rounded-[3rem] shadow-2xl relative z-10 w-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 reveal delay-200">
+                        <h2 class="text-4xl font-bold mb-8">From Chaos to Orchestration</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-lg leading-relaxed">
+                            With over a decade of experience in DevOps and Site Reliability Engineering, I've seen firsthand how "Big Bang" releases can cripple even the strongest teams. My mission is to replace that anxiety with a systematic approach to feature delivery.
+                        </p>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 text-lg leading-relaxed">
+                            I've architected release systems for Fortune 500 banks, high-growth SaaS startups, and government infrastructure. My approach combines technical excellence with cultural transformation.
+                        </p>
+                        <div class="grid grid-cols-2 gap-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+                            <div>
+                                <h4 class="text-2xl font-bold text-primary mb-1">12+ Years</h4>
+                                <p class="text-sm text-slate-500">DevOps Experience</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-accent mb-1">200+ Projects</h4>
+                                <p class="text-sm text-slate-500">Success Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Expertise & Skills Section -->
+        <section class="py-24 bg-slate-100 dark:bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20 reveal">
+                    <h2 class="text-4xl font-bold mb-4">Core Competencies</h2>
+                    <p class="text-slate-500">A specialized skill set focused on deployment safety and release velocity.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 rounded-3xl reveal delay-100">
+                        <div class="text-primary mb-6"><i data-lucide="cog" class="w-12 h-12"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Architecture Design</h3>
+                        <ul class="space-y-3 text-slate-500 text-sm">
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Global Edge Flag Management</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Zero-Latency Evaluation</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Compliance & Auditing</span></li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl reveal delay-200">
+                        <div class="text-accent mb-6"><i data-lucide="activity" class="w-12 h-12"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Release Safety</h3>
+                        <ul class="space-y-3 text-slate-500 text-sm">
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Automated Kill-Switches</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Canary Traffic Splitting</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Blast Radius Limitation</span></li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl reveal delay-300">
+                        <div class="text-primary mb-6"><i data-lucide="users" class="w-12 h-12"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Team Culture</h3>
+                        <ul class="space-y-3 text-slate-500 text-sm">
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Stakeholder Alignment</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Flag Debt Mitigation</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span>Training & Workshops</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Mission & Vision Section -->
+        <section class="py-24 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="bg-gradient-premium rounded-3xl p-10 lg:p-16 relative reveal">
+                    <div class="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-5"></div>
+                    <div class="lg:flex items-center space-x-20 relative z-10">
+                        <div class="lg:w-1/2 mb-12 lg:mb-0">
+                            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">My Vision for 2026</h2>
+                            <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                                I envision a world where "Deployment Day" is just another Tuesday. Where features are tested in production safely, and engineers can roll back a failure in milliseconds without breaking a sweat.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white"><i data-lucide="shield-check"></i></div>
+                                    <span class="text-white font-medium text-lg">Trust-Centered Releases</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white"><i data-lucide="zap"></i></div>
+                                    <span class="text-white font-medium text-lg">Velocity Without Compromise</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Mission Vision" class="rounded-3xl shadow-2xl border border-white/10 scale-110 w-full h-80 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. DevOps Philosophy Section -->
+        <section class="py-24">
+            <div class="container mx-auto px-6 text-center max-w-4xl mx-auto">
+                <div class="reveal">
+                    <h2 class="text-4xl font-bold mb-12">The FlagMasters Manifesto</h2>
+                    <div class="grid gap-8">
+                        <div class="p-8 border border-slate-800 rounded-3xl text-left bg-slate-900/10">
+                            <h4 class="text-xl font-bold mb-4 text-primary italic">01. Code is not a Release</h4>
+                            <p class="text-slate-500">Deployment is a technical event. Release is a business event. Keep them separate to maintain control.</p>
+                        </div>
+                        <div class="p-8 border border-slate-800 rounded-3xl text-left bg-slate-900/10">
+                            <h4 class="text-xl font-bold mb-4 text-accent italic">02. Safety is a Feature</h4>
+                            <p class="text-slate-500">Every new feature must have a safety net. If you can't toggle it off, you haven't finished building it.</p>
+                        </div>
+                        <div class="p-8 border border-slate-800 rounded-3xl text-left bg-slate-900/10">
+                            <h4 class="text-xl font-bold mb-4 text-primary italic">03. Metrics Drive Decisions</h4>
+                            <p class="text-slate-500">Don't guess. Use real-time evaluation data to decide when to roll forward or roll back.</p>
+                        </div>
+                    </div>
+                    <div class="mt-20">
+                        <a href="contact.html" class="px-10 py-5 bg-primary text-white rounded-2xl font-bold text-xl hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">Let's Work Together</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-20 border-t border-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 lg:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 mb-6">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded flex items-center justify-center">
+                            <i data-lucide="toggle-right" class="text-white w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl font-bold font-['Outfit'] text-white">FlagMasters</span>
+                    </a>
+                    <p class="text-sm leading-relaxed mb-6">Enterprise-grade feature flag strategy and release toggling consulting. Built for high-velocity DevOps teams.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-all group" title="Twitter">
+                            <i data-lucide="twitter" class="w-5 h-5 text-slate-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-all group" title="LinkedIn">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-slate-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-all group" title="GitHub">
+                            <i data-lucide="github" class="w-5 h-5 text-slate-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-all group" title="YouTube">
+                            <i data-lucide="youtube" class="w-5 h-5 text-slate-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-all group" title="Discord">
+                            <i data-lucide="message-square" class="w-5 h-5 text-slate-400 group-hover:text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Consulting</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Feature Flag Audit</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Canary Architecture</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Kill-Switch Implementation</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">A/B Testing Strategy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Resources</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="blog.html" class="hover:text-primary transition-colors">DevOps Blog</a></li>
+                        <li><a href="case-studies.html" class="hover:text-primary transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Release Metrics Guide</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Security Compliance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Me</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-slate-200 dark:border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2026 FlagMasters Consulting. All rights reserved.</p>
+                <div class="flex items-center space-x-6 mt-4 md:mt-0">
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-primary transition-colors">Cookie Policy</a>
+                    </div>
+                    <!-- Back to Top -->
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-lg border border-primary/20 group" title="Back to Top">
+                        <i data-lucide="arrow-up" class="w-5 h-5 text-primary group-hover:text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | FlagMasters Release Orchestrator</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D5EF3',
+                        secondary: '#0F172A',
+                        accent: '#6D5EF3',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Mobile Sidebar Trigger -->
+    <button id="sidebar-toggle" class="lg:hidden fixed bottom-6 right-6 z-[60] w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all active:scale-95">
+        <i data-lucide="menu" id="toggle-icon"></i>
+    </button>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+    <main class="min-h-screen flex relative overflow-hidden">
+        <!-- Background Image with Cinematic Overlay -->
+        <div class="absolute inset-0 z-0 opacity-30 pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000" alt="Dashboard Background" class="w-full h-full object-cover scale-105 animate-slow-zoom">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-transparent to-[#0F172A]"></div>
+        </div>
+
+        <!-- Dashboard Sidebar -->
+        <aside id="dashboard-sidebar" class="fixed inset-y-0 left-0 w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 transition-all duration-300 z-50 -translate-x-full lg:translate-x-0 lg:sticky top-0 h-screen overflow-y-auto">
+            <div class="space-y-8 h-full flex flex-col">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 mb-10 px-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded flex items-center justify-center">
+                        <i data-lucide="toggle-right" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-bold font-['Outfit']">Flag<span class="text-primary">Masters</span></span>
+                </a>
+
+                <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                    <div class="space-y-8">
+                        <div>
+                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 px-3">Main Control</h5>
+                            <nav class="space-y-1">
+                                <button data-tab="overview" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all active">
+                                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                                    <span>Overview</span>
+                                </button>
+                                <button data-tab="feature-flags" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                    <i data-lucide="toggle-right" class="w-5 h-5"></i>
+                                    <span>Feature Flags</span>
+                                </button>
+                                <button data-tab="rollout-analytics" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                    <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                                    <span>Rollout Analytics</span>
+                                </button>
+                            </nav>
+                        </div>
+
+                        <div>
+                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 px-3">Advanced Release</h5>
+                            <nav class="space-y-1">
+                                <button data-tab="canary-releases" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                    <i data-lucide="bird" class="w-5 h-5"></i>
+                                    <span>Canary Releases</span>
+                                </button>
+                                <button data-tab="ab-experiments" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                    <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                                    <span>A/B Experiments</span>
+                                </button>
+                                <button data-tab="kill-switch" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-red-500 hover:bg-red-500/10 transition-all">
+                                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                                    <span>Kill Switch Monitoring</span>
+                                </button>
+                            </nav>
+                        </div>
+
+                        <div>
+                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 px-3">Administration</h5>
+                            <nav class="space-y-1">
+                                <button data-tab="deployment-reports" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                                    <span>Deployment Reports</span>
+                                </button>
+                                <button data-tab="team-access" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                    <i data-lucide="users" class="w-5 h-5"></i>
+                                    <span>Team Access</span>
+                                </button>
+                                <button data-tab="settings" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                    <i data-lucide="settings" class="w-5 h-5"></i>
+                                    <span>Settings</span>
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toggles Footer -->
+                <div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-900 rounded-xl">
+                        <button class="theme-toggle p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm" title="Toggle Theme">
+                            <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                            <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                        </button>
+                        <button class="rtl-toggle p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm" title="Toggle RTL">
+                            <i data-lucide="languages" class="w-4 h-4"></i>
+                        </button>
+                        <a href="login.html" class="p-2 rounded-lg hover:bg-red-500/10 text-red-500 transition-all" title="Logout">
+                            <i data-lucide="log-out" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Dashboard Content Container -->
+        <div class="flex-1 w-full min-w-0 bg-slate-50 dark:bg-slate-950 overflow-x-hidden">
+            
+            <!-- 1. Overview Tab -->
+            <section id="tab-overview" class="dashboard-tab active p-6 lg:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                    <div>
+                        <h1 class="text-3xl font-bold mb-2">Platform Overview</h1>
+                        <p class="text-slate-500">Live system status across 14 clusters</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="px-4 py-2 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center space-x-2 text-sm font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                            <i data-lucide="refresh-ccw" class="w-4 h-4"></i>
+                            <span>Sync State</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-primary">
+                        <h3 class="text-slate-500 text-xs font-bold uppercase mb-2">Total Evaluations</h3>
+                        <div class="text-3xl font-bold">12.8M</div>
+                        <p class="text-[10px] text-green-500 mt-1 font-bold">+14.2% from yesterday</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-green-500">
+                        <h3 class="text-slate-500 text-xs font-bold uppercase mb-2">Active Flags</h3>
+                        <div class="text-3xl font-bold">42</div>
+                        <p class="text-[10px] text-slate-500 mt-1">6 Scheduled for cleanup</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-accent">
+                        <h3 class="text-slate-500 text-xs font-bold uppercase mb-2">Median Latency</h3>
+                        <div class="text-3xl font-bold">8.4ms</div>
+                        <p class="text-[10px] text-blue-500 mt-1 font-bold">Global Edge Delivery</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-red-500">
+                        <h3 class="text-slate-500 text-xs font-bold uppercase mb-2">Incident Rate</h3>
+                        <div class="text-3xl font-bold">0.02%</div>
+                        <p class="text-[10px] text-red-500 mt-1 font-bold">Below Threshold</p>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-10">
+                    <div class="lg:col-span-2 glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6">Global Evaluation Volume</h3>
+                        <div class="h-[300px]">
+                            <canvas id="overviewChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6">Recent Activity</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                                    <i data-lucide="plus" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">New Flag Created</p>
+                                    <p class="text-xs text-slate-500">`v3-checkout-flow` by J. Doe</p>
+                                    <p class="text-[10px] text-slate-400 mt-1">2 mins ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-yellow-500/10 text-yellow-500 flex items-center justify-center shrink-0">
+                                    <i data-lucide="edit-3" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">Rollout Updated</p>
+                                    <p class="text-xs text-slate-500">`search-v2` split changed to 50%</p>
+                                    <p class="text-[10px] text-slate-400 mt-1">45 mins ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center shrink-0">
+                                    <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">Kill Switch Triggered</p>
+                                    <p class="text-xs text-slate-500">`ad-service-v1` disabled globally</p>
+                                    <p class="text-[10px] text-slate-400 mt-1">2 hours ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Feature Flags Tab -->
+            <section id="tab-feature-flags" class="dashboard-tab p-6 lg:p-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                    <div>
+                        <h1 class="text-3xl font-bold mb-2">Feature Management</h1>
+                        <p class="text-slate-500">Orchestrate your production feature sets</p>
+                    </div>
+                    <button class="px-6 py-3 bg-primary text-white rounded-xl font-bold flex items-center space-x-2 shadow-lg shadow-primary/20">
+                        <i data-lucide="plus" class="w-5 h-5"></i>
+                        <span>New Enterprise Flag</span>
+                    </button>
+                </div>
+
+                <div class="glass-card rounded-3xl overflow-hidden">
+                    <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/50">
+                        <div class="relative w-72">
+                            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"></i>
+                            <input type="text" placeholder="Filter by name, tag or owner..." class="w-full pl-12 pr-4 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="text-[10px] font-bold text-slate-500 uppercase tracking-widest bg-slate-100/50 dark:bg-slate-900/50">
+                                    <th class="px-6 py-4">Flag Name</th>
+                                    <th class="px-6 py-4">Environment</th>
+                                    <th class="px-6 py-4">Rollout Status</th>
+                                    <th class="px-6 py-4">Last Modified</th>
+                                    <th class="px-6 py-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                <tr class="hover:bg-slate-100/50 dark:hover:bg-slate-800/30 transition-all">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                                            <span class="font-bold">v3-checkout-flow</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-blue-500/10 text-blue-500 text-[10px] font-bold rounded uppercase">Production</span></td>
+                                    <td class="px-6 py-4">
+                                        <div class="w-32 bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                            <div class="bg-primary h-full w-[85%]"></div>
+                                        </div>
+                                        <span class="text-[10px] mt-1 block font-bold text-slate-500">85% Split</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-xs text-slate-500">24 mins ago by @Shalan</td>
+                                    <td class="px-6 py-4"><button class="text-primary hover:underline text-xs font-bold">Manage</button></td>
+                                </tr>
+                                <tr class="hover:bg-slate-100/50 dark:hover:bg-slate-800/30 transition-all">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                                            <span class="font-bold">ai-recommendations</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-purple-500/10 text-purple-500 text-[10px] font-bold rounded uppercase">Staging</span></td>
+                                    <td class="px-6 py-4">
+                                        <div class="w-32 bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                            <div class="bg-primary h-full w-[10%]"></div>
+                                        </div>
+                                        <span class="text-[10px] mt-1 block font-bold text-slate-500">10% Canary</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-xs text-slate-500">2 hours ago by @System</td>
+                                    <td class="px-6 py-4"><button class="text-primary hover:underline text-xs font-bold">Manage</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Rollout Analytics Tab -->
+            <section id="tab-rollout-analytics" class="dashboard-tab p-6 lg:p-10">
+                <h1 class="text-3xl font-bold mb-10">Rollout Intelligence</h1>
+                <div class="grid lg:grid-cols-2 gap-10">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6">Traffic Distribution (Region)</h3>
+                        <div class="h-[300px]">
+                            <canvas id="rolloutChartRegion"></canvas>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6">Evaluation Error Trends</h3>
+                        <div class="h-[300px]">
+                            <canvas id="rolloutChartErrors"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Canary Releases Tab -->
+            <section id="tab-canary-releases" class="dashboard-tab p-6 lg:p-10">
+                <h1 class="text-3xl font-bold mb-10">Canary Orchestration</h1>
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <div class="glass-card p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent">
+                        <h3 class="text-sm font-bold text-primary mb-2 uppercase">Active Canaries</h3>
+                        <div class="text-4xl font-bold">14</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-green-500">
+                        <h3 class="text-sm font-bold text-slate-500 mb-2 uppercase">Success Threshold</h3>
+                        <div class="text-4xl font-bold">98.5%</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-accent">
+                        <h3 class="text-sm font-bold text-slate-500 mb-2 uppercase">Avg. Soak Time</h3>
+                        <div class="text-4xl font-bold">4.2h</div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 text-primary">Live Canary Monitor: `auth-service-v4`</h3>
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div class="flex justify-center">
+                            <div class="w-48 h-48 rounded-full border-[12px] border-slate-200 dark:border-slate-800 relative flex items-center justify-center">
+                                <div class="absolute inset-0 rounded-full border-[12px] border-primary border-t-transparent animate-[spin_3s_linear_infinite]"></div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold">15%</div>
+                                    <div class="text-[10px] text-slate-500 font-bold uppercase">Traffic Split</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-2"><span>Latency Delta</span> <span class="text-green-500">-2.4ms</span></div>
+                                <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-green-500 h-full w-[80%]"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-2"><span>Error Delta</span> <span class="text-green-500">+0.01%</span></div>
+                                <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-green-500 h-full w-[95%]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. A/B Experiments Tab -->
+            <section id="tab-ab-experiments" class="dashboard-tab p-6 lg:p-10">
+                <h1 class="text-3xl font-bold mb-10">Experiment Control</h1>
+                <div class="grid lg:grid-cols-2 gap-10">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6">Experiment: `checkout-button-color`</h3>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-primary/20">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="px-3 py-1 bg-primary text-white text-[10px] font-bold rounded-full">Variant A (Control)</span>
+                                    <span class="text-sm font-bold">4.2% CR</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full"><div class="bg-primary h-full w-[42%]"></div></div>
+                            </div>
+                            <div class="p-6 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-accent/20">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="px-3 py-1 bg-accent text-white text-[10px] font-bold rounded-full">Variant B (Treatment)</span>
+                                    <span class="text-sm font-bold text-green-500">5.8% CR (+38%)</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full"><div class="bg-green-500 h-full w-[58%]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6">Active User Cohorts</h3>
+                        <div class="h-[300px]">
+                            <canvas id="experimentCohortChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Kill Switch Tab -->
+            <section id="tab-kill-switch" class="dashboard-tab p-6 lg:p-10">
+                <div class="flex justify-between items-center mb-10">
+                    <h1 class="text-3xl font-bold text-red-500 flex items-center">
+                        <i data-lucide="shield-alert" class="mr-3"></i> Security & Kill Switches
+                    </h1>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="glass-card p-8 rounded-3xl border-2 border-red-500/20">
+                        <h3 class="text-xl font-bold mb-6">Emergency Global Kill Switch</h3>
+                        <p class="text-sm text-slate-500 mb-8">Disables ALL active feature flags across the production environment.</p>
+                        <button class="w-full py-4 bg-red-500 text-white rounded-2xl font-bold text-lg hover:bg-red-600 transition-all shadow-xl shadow-red-500/20 flex items-center justify-center space-x-3">
+                            <i data-lucide="power" class="w-6 h-6"></i>
+                            <span>INITIATE GLOBAL SHUTDOWN</span>
+                        </button>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6">Auto-Kill Triggers</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl">
+                                <div>
+                                    <p class="font-bold">Latency Spike > 500ms</p>
+                                    <p class="text-[10px] text-slate-500">Auto-disable high-impact flags</p>
+                                </div>
+                                <div class="w-12 h-6 bg-primary rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Deployment Reports Tab -->
+            <section id="tab-deployment-reports" class="dashboard-tab p-6 lg:p-10">
+                <h1 class="text-3xl font-bold mb-10">Deployment Intelligence</h1>
+                <div class="glass-card rounded-3xl overflow-hidden">
+                    <div class="table-container">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-100 dark:bg-slate-900">
+                                <tr class="text-[10px] font-bold text-slate-500 uppercase">
+                                    <th class="px-6 py-4">Release ID</th>
+                                    <th class="px-6 py-4">Flags Impacted</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4">Artifact</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-sm">#RL-2026-8812</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">12 Active</span></td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded">SUCCESSFUL</span></td>
+                                    <td class="px-6 py-4"><button class="text-primary hover:underline text-xs">View Log</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Team Access Tab -->
+            <section id="tab-team-access" class="dashboard-tab p-6 lg:p-10">
+                <h1 class="text-3xl font-bold mb-10">Access Governance</h1>
+                <div class="grid lg:grid-cols-4 gap-6 mb-10">
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">SA</div>
+                        <div>
+                            <p class="text-sm font-bold">Shalan A.</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Settings Tab -->
+            <section id="tab-settings" class="dashboard-tab p-6 lg:p-10">
+                <h1 class="text-3xl font-bold mb-10">Global Configuration</h1>
+                <div class="max-w-2xl glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center"><i data-lucide="key" class="mr-2 text-primary"></i> SDK Integration Keys</h3>
+                    <div>
+                        <label class="text-xs font-bold text-slate-500 uppercase mb-2 block">Production Server Key</label>
+                        <div class="flex space-x-2">
+                            <input type="password" value="fm_prod_8822_99xxyyzz" readonly class="flex-1 px-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl font-mono text-xs">
+                            <button class="p-3 bg-slate-200 dark:bg-slate-800 rounded-xl"><i data-lucide="copy" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            // Dashboard Tab Switching Logic
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const tabs = document.querySelectorAll('.dashboard-tab');
+            const sidebar = document.getElementById('dashboard-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const toggleBtn = document.getElementById('sidebar-toggle');
+            const toggleIcon = document.getElementById('toggle-icon');
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const tabId = link.getAttribute('data-tab');
+                    
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    
+                    tabs.forEach(tab => {
+                        tab.classList.remove('active');
+                        if(tab.id === `tab-${tabId}`) {
+                            tab.classList.add('active');
+                        }
+                    });
+
+                    if (window.innerWidth < 1024) {
+                        closeSidebar();
+                    }
+                    lucide.createIcons();
+                });
+            });
+
+            function openSidebar() {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                toggleIcon.setAttribute('data-lucide', 'x');
+                lucide.createIcons();
+            }
+
+            function closeSidebar() {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+                toggleIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                const isOpen = !sidebar.classList.contains('-translate-x-full');
+                if (isOpen) closeSidebar();
+                else openSidebar();
+            });
+
+            overlay.addEventListener('click', closeSidebar);
+
+            // Initialize Charts
+            const chartConfig = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { grid: { color: 'rgba(148, 163, 184, 0.1)' }, ticks: { color: '#94a3b8', font: { size: 10 } } },
+                    x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } }
+                }
+            };
+
+            new Chart(document.getElementById('overviewChart'), {
+                type: 'line',
+                data: {
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
+                    datasets: [{
+                        data: [1200, 1900, 1500, 2800, 2400, 3200],
+                        borderColor: '#6D5EF3',
+                        backgroundColor: 'rgba(109, 94, 243, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: chartConfig
+            });
+
+            new Chart(document.getElementById('rolloutChartRegion'), {
+                type: 'bar',
+                data: {
+                    labels: ['US-East', 'EU-West', 'AP-South', 'SA-East'],
+                    datasets: [{
+                        data: [450, 320, 210, 150],
+                        backgroundColor: ['#6D5EF3', '#0F172A', '#3b82f6', '#10b981']
+                    }]
+                },
+                options: chartConfig
+            });
+
+            new Chart(document.getElementById('rolloutChartErrors'), {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    datasets: [{
+                        data: [0.01, 0.03, 0.02, 0.05, 0.02, 0.01],
+                        borderColor: '#ef4444',
+                        tension: 0.4
+                    }]
+                },
+                options: chartConfig
+            });
+
+            new Chart(document.getElementById('experimentCohortChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Power Users', 'Free Tier', 'Enterprise'],
+                    datasets: [{
+                        data: [40, 35, 25],
+                        backgroundColor: ['#6D5EF3', '#3b82f6', '#0F172A']
+                    }]
+                },
+                options: { ...chartConfig, plugins: { legend: { display: true, position: 'bottom', labels: { color: '#94a3b8' } } } }
+            });
+        });
+    </script>
+</body>
+</html>
