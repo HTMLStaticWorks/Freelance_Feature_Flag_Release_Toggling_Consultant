@@ -41,13 +41,7 @@
     <!-- Mobile Sidebar Overlay -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden"></div>
 
-    <main class="min-h-screen flex relative overflow-hidden">
-        <!-- Background Image with Cinematic Overlay -->
-        <div class="absolute inset-0 z-0 opacity-30 pointer-events-none">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000" alt="Dashboard Background" class="w-full h-full object-cover scale-105 animate-slow-zoom">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-transparent to-[#0F172A]"></div>
-        </div>
-
+    <main class="min-h-screen flex relative overflow-hidden bg-slate-50 dark:bg-slate-950">
         <!-- Dashboard Sidebar -->
         <aside id="dashboard-sidebar" class="fixed inset-y-0 left-0 w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 transition-all duration-300 z-50 -translate-x-full lg:translate-x-0 lg:sticky top-0 h-screen overflow-y-auto">
             <div class="space-y-8 h-full flex flex-col">
@@ -127,7 +121,7 @@
                         <button class="rtl-toggle p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm" title="Toggle RTL">
                             <i data-lucide="languages" class="w-4 h-4"></i>
                         </button>
-                        <a href="login.html" class="p-2 rounded-lg hover:bg-red-500/10 text-red-500 transition-all" title="Logout">
+                        <a href="index.html" class="p-2 rounded-lg hover:bg-red-500/10 text-red-500 transition-all" title="Logout">
                             <i data-lucide="log-out" class="w-4 h-4"></i>
                         </a>
                     </div>

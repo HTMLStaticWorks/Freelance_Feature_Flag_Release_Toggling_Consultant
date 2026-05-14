@@ -271,6 +271,50 @@ header.scrolled {
     right: 0;
 }
 
+/* Social Login Buttons */
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .social-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.social-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(109, 94, 243, 0.2);
+}
+
+.social-btn svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-btn:hover svg {
+    transform: scale(1.1);
+}
+
+.github-icon {
+    fill: #1f2937; /* Slate 800 */
+}
+
+[data-theme='dark'] .github-icon {
+    fill: white;
+}
+
 /* Mobile Menu Enhanced */
 #mobile-menu {
     background: rgba(15, 23, 42, 0.98);
