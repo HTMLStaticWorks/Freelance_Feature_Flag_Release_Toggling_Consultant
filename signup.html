@@ -32,11 +32,11 @@
 
     <main class="min-h-screen relative flex items-center justify-center py-20 overflow-hidden bg-slate-50 dark:bg-slate-950">
         <!-- Abstract Background Elements -->
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-pulse delay-700"></div>
-
+        <div class="absolute -top-24 -start-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute -bottom-24 -end-24 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-pulse delay-700"></div>
+ 
         <!-- Utilities (Theme/RTL) -->
-        <div class="absolute top-8 right-8 flex items-center space-x-4 z-50">
+        <div class="absolute top-4 sm:top-8 end-4 sm:end-8 flex items-center space-x-4 z-50">
             <button class="theme-toggle w-10 h-10 glass-card rounded-xl flex items-center justify-center hover:bg-primary/10 transition-all border border-slate-200 dark:border-slate-800" title="Toggle Theme">
                 <i data-lucide="sun" class="w-5 h-5 dark:hidden text-primary"></i>
                 <i data-lucide="moon" class="w-5 h-5 hidden dark:block text-primary"></i>
@@ -45,6 +45,7 @@
                 <i data-lucide="languages" class="w-5 h-5 text-primary"></i>
             </button>
         </div>
+
 
         <!-- Signup Card -->
         <div class="w-full max-w-md reveal">
@@ -72,7 +73,7 @@
                         <div class="space-y-1.5">
                             <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ms-1">Full Name</label>
                             <div class="relative">
-                                <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+                                <i data-lucide="user" class="absolute start-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
                                 <input type="text" placeholder="John Architect" class="w-full ps-12 pe-6 py-3.5 bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-900 transition-all text-sm font-medium">
                             </div>
                         </div>
@@ -80,7 +81,7 @@
                         <div class="space-y-1.5">
                             <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ms-1">Work Email</label>
                             <div class="relative">
-                                <i data-lucide="mail" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+                                <i data-lucide="mail" class="absolute start-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
                                 <input type="email" placeholder="john@company.io" class="w-full ps-12 pe-6 py-3.5 bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-900 transition-all text-sm font-medium">
                             </div>
                         </div>
@@ -88,9 +89,9 @@
                         <div class="space-y-1.5">
                             <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ms-1">Password</label>
                             <div class="relative group/pass">
-                                <i data-lucide="lock" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within/pass:text-primary transition-colors"></i>
+                                <i data-lucide="lock" class="absolute start-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within/pass:text-primary transition-colors"></i>
                                 <input type="password" id="password" placeholder="••••••••••••" class="w-full ps-12 pe-12 py-3.5 bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-900 transition-all text-sm font-medium">
-                                <button type="button" id="password-toggle" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors focus:outline-none">
+                                <button type="button" id="password-toggle" class="absolute end-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors focus:outline-none">
                                     <i data-lucide="eye" class="w-4 h-4" id="eye-icon"></i>
                                     <i data-lucide="eye-off" class="w-4 h-4 hidden" id="eye-off-icon"></i>
                                 </button>
@@ -100,9 +101,9 @@
                         <div class="space-y-1.5">
                             <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ms-1">Confirm Password</label>
                             <div class="relative group/confirm">
-                                <i data-lucide="shield-check" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within/confirm:text-primary transition-colors"></i>
+                                <i data-lucide="shield-check" class="absolute start-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within/confirm:text-primary transition-colors"></i>
                                 <input type="password" id="confirm-password" placeholder="••••••••••••" class="w-full ps-12 pe-12 py-3.5 bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-900 transition-all text-sm font-medium">
-                                <button type="button" id="confirm-password-toggle" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors focus:outline-none">
+                                <button type="button" id="confirm-password-toggle" class="absolute end-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors focus:outline-none">
                                     <i data-lucide="eye" class="w-4 h-4" id="confirm-eye-icon"></i>
                                     <i data-lucide="eye-off" class="w-4 h-4 hidden" id="confirm-eye-off-icon"></i>
                                 </button>

@@ -31,8 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             html.setAttribute('dir', newDir);
             localStorage.setItem('dir', newDir);
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         });
     });
+
 
     // Mobile Menu Logic
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
