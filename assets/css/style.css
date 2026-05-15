@@ -10,7 +10,16 @@
     --bg-light: #f8fafc;
     --bg-dark: #0f172a;
     --text-light: #1e293b;
-    --text-dark: #f1f5f9;
+    --text-dark: #f8fafc; /* Lighter white for dark mode */
+}
+
+/* Global Contrast Improvements */
+[data-theme='dark'] .text-slate-500 {
+    color: #94a3b8 !important; /* Slate 400 - more visible on dark */
+}
+
+[data-theme='dark'] .text-slate-600 {
+    color: #cbd5e1 !important; /* Slate 300 */
 }
 
 [data-theme='dark'] {
@@ -86,7 +95,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient {
-    background: linear-gradient(to right, #6D5EF3, #0F172A);
+    color: #8b81f7; /* Fallback */
+    background: linear-gradient(to right, #8b81f7, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-light {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -188,9 +205,53 @@ body {
     text-align: right;
 }
 
-[dir='rtl'] .ml-auto {
+[dir='rtl'] .ms-auto {
     margin-right: auto;
     margin-left: 0;
+}
+
+[dir='rtl'] .me-auto {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Ensure Lucide icons don't flip unless they are directional */
+[dir='rtl'] i[data-lucide="toggle-right"] {
+    transform: scaleX(-1);
+}
+
+[dir='rtl'] i[data-lucide="arrow-right"] {
+    transform: scaleX(-1);
+}
+
+[dir='rtl'] i[data-lucide="chevron-right"] {
+    transform: scaleX(-1);
+}
+
+[dir='rtl'] .border-s {
+    border-right-width: 1px;
+    border-left-width: 0;
+}
+
+[dir='rtl'] .ps-4 {
+    padding-right: 1rem;
+    padding-left: 0;
+}
+
+[dir='rtl'] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+}
+
+[dir='rtl'] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+}
+
+[dir='rtl'] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+}
+
+[dir='rtl'] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
 }
 
 /* Custom Scrollbar */
@@ -231,6 +292,59 @@ header.scrolled {
 
 [data-theme='light'] header.scrolled {
     background: rgba(255, 255, 255, 0.98);
+}
+
+.hero-section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+@media (min-width: 1024px) {
+    .hero-section {
+        padding-top: 14rem;
+        padding-bottom: 14rem;
+    }
+}
+
+.case-study-highlight {
+    background: linear-gradient(135deg, rgba(109, 94, 243, 0.08) 0%, rgba(15, 23, 42, 0.03) 100%);
+    border: 1px solid rgba(109, 94, 243, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.case-study-highlight:hover {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2), 0 0 30px rgba(109, 94, 243, 0.25);
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(109, 94, 243, 0.12) 0%, rgba(15, 23, 42, 0.05) 100%);
+}
+
+.case-study-highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(109, 94, 243, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.case-study-highlight:hover::before {
+    opacity: 1;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(109, 94, 243, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(109, 94, 243, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(109, 94, 243, 0); }
+}
+
+.pulse-badge {
+    animation: pulse-glow 2s infinite;
 }
 
 .nav-link {
@@ -326,4 +440,38 @@ header.scrolled {
 [data-theme='light'] #mobile-menu {
     background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+/* Dashboard Table & Scrollbar Fixes */
+.overflow-x-auto {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(109, 94, 243, 0.2);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(109, 94, 243, 0.4);
+}
+
+/* Sidebar Animation */
+#dashboard-sidebar {
+    will-change: transform;
+}
+
+/* Header Glassmorphism Refinement */
+header.sticky {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }

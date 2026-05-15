@@ -92,4 +92,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // FAQ Accordion Logic
+    const faqBtns = document.querySelectorAll('.faq-btn');
+    faqBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const container = btn.parentElement;
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            
+            const isOpen = content.style.maxHeight;
+            
+            // Close all others
+            document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
+            document.querySelectorAll('.faq-btn i').forEach(i => i.style.transform = 'rotate(0deg)');
+            document.querySelectorAll('.faq-btn').forEach(b => b.parentElement.classList.remove('border-primary/30'));
+
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+                container.classList.add('border-primary/30');
+            }
+        });
+    });
 });

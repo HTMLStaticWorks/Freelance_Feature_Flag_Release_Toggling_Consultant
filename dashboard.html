@@ -33,105 +33,158 @@
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-    <!-- Mobile Sidebar Trigger -->
-    <button id="sidebar-toggle" class="lg:hidden fixed bottom-6 right-6 z-[60] w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all active:scale-95">
-        <i data-lucide="menu" id="toggle-icon"></i>
-    </button>
-
+    <!-- Mobile Sidebar Trigger (Floating fallback removed, now in header) -->
     <!-- Mobile Sidebar Overlay -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-40 hidden xl:hidden transition-opacity duration-300"></div>
 
     <main class="min-h-screen flex relative overflow-hidden bg-slate-50 dark:bg-slate-950">
         <!-- Dashboard Sidebar -->
-        <aside id="dashboard-sidebar" class="fixed inset-y-0 left-0 w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 transition-all duration-300 z-50 -translate-x-full lg:translate-x-0 lg:sticky top-0 h-screen overflow-y-auto">
+        <aside id="dashboard-sidebar" class="fixed inset-y-0 left-0 rtl:left-auto rtl:right-0 w-72 border-r rtl:border-r-0 rtl:border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 transition-all duration-500 ease-in-out z-50 -translate-x-full rtl:translate-x-full xl:translate-x-0 xl:sticky top-0 h-screen overflow-y-auto shadow-2xl xl:shadow-none">
             <div class="space-y-8 h-full flex flex-col">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-2 mb-10 px-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded flex items-center justify-center">
-                        <i data-lucide="toggle-right" class="text-white w-5 h-5"></i>
-                    </div>
-                    <span class="text-xl font-bold font-['Outfit']">Flag<span class="text-primary">Masters</span></span>
-                </a>
-
-                <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
-                    <div class="space-y-8">
-                        <div>
-                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 px-3">Main Control</h5>
-                            <nav class="space-y-1">
-                                <button data-tab="overview" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all active">
-                                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-                                    <span>Overview</span>
-                                </button>
-                                <button data-tab="feature-flags" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                    <i data-lucide="toggle-right" class="w-5 h-5"></i>
-                                    <span>Feature Flags</span>
-                                </button>
-                                <button data-tab="rollout-analytics" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                    <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-                                    <span>Rollout Analytics</span>
-                                </button>
-                            </nav>
+                <!-- Sidebar Header -->
+                <div class="flex items-center justify-between mb-10 px-3">
+                    <a href="index.html" class="flex items-center space-x-3 group">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-primary/20 transition-transform group-hover:scale-110">
+                            <i data-lucide="toggle-right" class="text-white w-6 h-6"></i>
                         </div>
-
-                        <div>
-                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 px-3">Advanced Release</h5>
-                            <nav class="space-y-1">
-                                <button data-tab="canary-releases" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                    <i data-lucide="bird" class="w-5 h-5"></i>
-                                    <span>Canary Releases</span>
-                                </button>
-                                <button data-tab="ab-experiments" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                    <i data-lucide="flask-conical" class="w-5 h-5"></i>
-                                    <span>A/B Experiments</span>
-                                </button>
-                                <button data-tab="kill-switch" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-red-500 hover:bg-red-500/10 transition-all">
-                                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
-                                    <span>Kill Switch Monitoring</span>
-                                </button>
-                            </nav>
-                        </div>
-
-                        <div>
-                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 px-3">Administration</h5>
-                            <nav class="space-y-1">
-                                <button data-tab="deployment-reports" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                    <i data-lucide="file-text" class="w-5 h-5"></i>
-                                    <span>Deployment Reports</span>
-                                </button>
-                                <button data-tab="team-access" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                    <i data-lucide="users" class="w-5 h-5"></i>
-                                    <span>Team Access</span>
-                                </button>
-                                <button data-tab="settings" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                    <i data-lucide="settings" class="w-5 h-5"></i>
-                                    <span>Settings</span>
-                                </button>
-                            </nav>
-                        </div>
-                    </div>
+                        <span class="text-2xl font-bold font-['Outfit'] tracking-tight group-hover:text-primary transition-colors">Flag<span class="text-primary group-hover:text-secondary dark:group-hover:text-white transition-colors">Masters</span></span>
+                    </a>
+                    <button id="sidebar-close-btn" class="xl:hidden p-2 bg-slate-100 dark:bg-slate-900 rounded-lg text-slate-500 hover:text-primary transition-all active:scale-95">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
                 </div>
 
-                <!-- Toggles Footer -->
-                <div class="pt-6 border-t border-slate-200 dark:border-slate-800">
-                    <div class="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-900 rounded-xl">
-                        <button class="theme-toggle p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm" title="Toggle Theme">
-                            <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
-                            <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                    <nav class="space-y-1">
+                        <button data-tab="overview" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all active whitespace-nowrap">
+                            <i data-lucide="layout-dashboard" class="w-5 h-5 shrink-0"></i>
+                            <span>Overview</span>
                         </button>
-                        <button class="rtl-toggle p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm" title="Toggle RTL">
-                            <i data-lucide="languages" class="w-4 h-4"></i>
+                        <button data-tab="feature-flags" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">
+                            <i data-lucide="toggle-right" class="w-5 h-5 shrink-0"></i>
+                            <span>Feature Flags</span>
                         </button>
-                        <a href="index.html" class="p-2 rounded-lg hover:bg-red-500/10 text-red-500 transition-all" title="Logout">
-                            <i data-lucide="log-out" class="w-4 h-4"></i>
-                        </a>
+                        <button data-tab="rollout-analytics" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 shrink-0"></i>
+                            <span>Rollout Analytics</span>
+                        </button>
+                        <button data-tab="canary-releases" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">
+                            <i data-lucide="bird" class="w-5 h-5 shrink-0"></i>
+                            <span>Canary Releases</span>
+                        </button>
+                        <button data-tab="ab-experiments" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">
+                            <i data-lucide="flask-conical" class="w-5 h-5 shrink-0"></i>
+                            <span>A/B Experiments</span>
+                        </button>
+                        <button data-tab="kill-switch" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-red-500 hover:bg-red-500/10 transition-all whitespace-nowrap">
+                            <i data-lucide="shield-alert" class="w-5 h-5 shrink-0"></i>
+                            <span>Kill Switch Monitoring</span>
+                        </button>
+                        <button data-tab="deployment-reports" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">
+                            <i data-lucide="file-text" class="w-5 h-5 shrink-0"></i>
+                            <span>Deployment Reports</span>
+                        </button>
+                        <button data-tab="team-access" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">
+                            <i data-lucide="users" class="w-5 h-5 shrink-0"></i>
+                            <span>Team Access</span>
+                        </button>
+                        <button data-tab="settings" class="sidebar-link w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all whitespace-nowrap">
+                            <i data-lucide="settings" class="w-5 h-5 shrink-0"></i>
+                            <span>Settings</span>
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Sidebar Footer Utilities -->
+                <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-6">
+                    <div class="flex items-center justify-between px-3 xl:hidden">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">System</span>
+                        <div class="flex items-center space-x-2">
+                            <button class="rtl-toggle p-2 bg-slate-100 dark:bg-slate-900 rounded-xl hover:bg-primary hover:text-white transition-all">
+                                <i data-lucide="languages" class="w-4 h-4"></i>
+                            </button>
+                            <button class="theme-toggle p-2 bg-slate-100 dark:bg-slate-900 rounded-xl hover:bg-primary hover:text-white transition-all">
+                                <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                                <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                            </button>
+                        </div>
                     </div>
+                    <a href="index.html" class="w-full flex items-center justify-center space-x-3 p-4 bg-red-500/10 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 font-bold group">
+                        <i data-lucide="log-out" class="w-5 h-5 transition-transform group-hover:-translate-x-1"></i>
+                        <span>Logout System</span>
+                    </a>
                 </div>
             </div>
         </aside>
 
         <!-- Dashboard Content Container -->
-        <div class="flex-1 w-full min-w-0 bg-slate-50 dark:bg-slate-950 overflow-x-hidden">
+        <div class="flex-1 w-full min-w-0 bg-slate-50 dark:bg-slate-950 overflow-x-hidden relative">
             
+            <!-- Global Dashboard Header -->
+            <header class="sticky top-0 z-[40] w-full bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-xl border-b border-primary/20 px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shadow-sm transition-all duration-300">
+                <div class="flex items-center justify-between gap-4 h-10 sm:h-12">
+                    <div class="flex items-center space-x-4">
+                        <!-- Mobile Sidebar Toggle (Modern Hamburger) -->
+                        <button id="mobile-sidebar-btn" class="xl:hidden w-11 h-11 flex items-center justify-center bg-slate-900/5 dark:bg-white/10 border border-slate-200/50 dark:border-white/10 rounded-xl text-slate-900 dark:text-white hover:bg-primary hover:text-white transition-all active:scale-95 group shrink-0 shadow-sm">
+                            <div class="w-6 h-4 flex flex-col justify-between items-center transition-all">
+                                <span class="w-full h-0.5 bg-current rounded-full transition-all group-hover:w-4"></span>
+                                <span class="w-full h-0.5 bg-current rounded-full"></span>
+                                <span class="w-full h-0.5 bg-current rounded-full transition-all group-hover:w-4"></span>
+                            </div>
+                        </button>
+                        
+                        <!-- Brand/Page Title (Visible on mobile/tablet) -->
+                        <div class="flex items-center space-x-3">
+                            <a href="index.html" class="hidden sm:flex xl:hidden items-center space-x-2 shrink-0">
+                                <div class="w-9 h-9 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                                    <i data-lucide="toggle-right" class="w-5 h-5"></i>
+                                </div>
+                            </a>
+                            <h1 class="text-lg font-bold text-slate-900 dark:text-white xl:text-2xl whitespace-nowrap">Dashboard</h1>
+                        </div>
+                    </div>
+
+                    <!-- Search Bar (Desktop only) -->
+                    <div class="hidden lg:block flex-1 max-w-md mx-8 relative group">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-primary transition-colors"></i>
+                        <input type="text" placeholder="Search (Ctrl + K)" class="w-full pl-11 pr-4 py-2.5 bg-slate-100 dark:bg-slate-900/50 border border-transparent focus:border-primary/30 rounded-2xl text-sm transition-all focus:outline-none focus:ring-4 focus:ring-primary/5">
+                    </div>
+
+                    <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
+                        <!-- System Toggles (Visible on tablet/desktop) -->
+                        <div class="hidden md:flex items-center space-x-1 sm:space-x-2 bg-slate-100/50 dark:bg-slate-900/50 p-1 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <button class="rtl-toggle p-2 rounded-xl hover:bg-white dark:hover:bg-slate-800 transition-all text-slate-500 hover:text-primary" title="Toggle RTL">
+                                <i data-lucide="languages" class="w-4 h-4"></i>
+                            </button>
+                            <button class="theme-toggle p-2 rounded-xl hover:bg-white dark:hover:bg-slate-800 transition-all text-slate-500 hover:text-primary" title="Toggle Theme">
+                                <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                                <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                            </button>
+                        </div>
+
+                        <!-- Notifications -->
+                        <button class="relative w-11 h-11 flex items-center justify-center bg-slate-900/5 dark:bg-white/10 border border-slate-200/50 dark:border-white/10 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all group shadow-sm">
+                            <i data-lucide="bell" class="w-5 h-5"></i>
+                            <span class="absolute top-3 right-3 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white dark:border-[#0F172A] shadow-sm"></span>
+                        </button>
+                        
+                        <!-- Profile -->
+                        <div class="flex items-center space-x-3 pl-2 sm:pl-4 border-l border-slate-200 dark:border-slate-800">
+                            <div class="text-right hidden sm:block">
+                                <p class="text-xs font-bold text-slate-900 dark:text-white leading-none mb-1">Shalan A.</p>
+                                <p class="text-[10px] text-green-500 font-bold uppercase tracking-wider leading-none">Enterprise Admin</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent p-[2px] cursor-pointer hover:scale-105 transition-all shadow-lg shadow-primary/20 group relative shrink-0">
+                                <div class="w-full h-full rounded-full bg-white dark:bg-slate-950 flex items-center justify-center overflow-hidden">
+                                    <i data-lucide="user" class="w-5 h-5 text-primary group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-slate-950 shadow-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
             <!-- 1. Overview Tab -->
             <section id="tab-overview" class="dashboard-tab active p-6 lg:p-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
@@ -140,14 +193,14 @@
                         <p class="text-slate-500">Live system status across 14 clusters</p>
                     </div>
                     <div class="flex space-x-3">
-                        <button class="px-4 py-2 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center space-x-2 text-sm font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                            <i data-lucide="refresh-ccw" class="w-4 h-4"></i>
+                        <button class="px-4 py-2 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center space-x-2 text-sm font-bold hover:bg-white dark:hover:bg-slate-900 hover:border-primary/30 hover:text-primary hover:shadow-lg transition-all duration-300 group">
+                            <i data-lucide="refresh-ccw" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             <span>Sync State</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
                     <div class="glass-card p-6 rounded-2xl border-l-4 border-primary">
                         <h3 class="text-slate-500 text-xs font-bold uppercase mb-2">Total Evaluations</h3>
                         <div class="text-3xl font-bold">12.8M</div>
@@ -170,8 +223,8 @@
                     </div>
                 </div>
 
-                <div class="grid lg:grid-cols-3 gap-10">
-                    <div class="lg:col-span-2 glass-card p-8 rounded-3xl">
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-10">
+                    <div class="xl:col-span-2 glass-card p-8 rounded-3xl">
                         <h3 class="text-xl font-bold mb-6">Global Evaluation Volume</h3>
                         <div class="h-[300px]">
                             <canvas id="overviewChart"></canvas>
@@ -222,8 +275,8 @@
                         <h1 class="text-3xl font-bold mb-2">Feature Management</h1>
                         <p class="text-slate-500">Orchestrate your production feature sets</p>
                     </div>
-                    <button class="px-6 py-3 bg-primary text-white rounded-xl font-bold flex items-center space-x-2 shadow-lg shadow-primary/20">
-                        <i data-lucide="plus" class="w-5 h-5"></i>
+                    <button class="px-6 py-3 bg-primary text-white rounded-xl font-bold flex items-center space-x-2 shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-105 hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 transform active:scale-95 group">
+                        <i data-lucide="plus" class="w-5 h-5 transition-transform group-hover:rotate-90"></i>
                         <span>New Enterprise Flag</span>
                     </button>
                 </div>
@@ -232,10 +285,10 @@
                     <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/50">
                         <div class="relative w-72">
                             <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-                            <input type="text" placeholder="Filter by name, tag or owner..." class="w-full pl-12 pr-4 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input type="text" placeholder="Filter by name, tag or owner..." class="w-full ps-12 pe-4 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
                     </div>
-                    <div class="table-container">
+                    <div class="overflow-x-auto custom-scrollbar">
                         <table class="w-full text-left">
                             <thead>
                                 <tr class="text-[10px] font-bold text-slate-500 uppercase tracking-widest bg-slate-100/50 dark:bg-slate-900/50">
@@ -262,7 +315,7 @@
                                         <span class="text-[10px] mt-1 block font-bold text-slate-500">85% Split</span>
                                     </td>
                                     <td class="px-6 py-4 text-xs text-slate-500">24 mins ago by @Shalan</td>
-                                    <td class="px-6 py-4"><button class="text-primary hover:underline text-xs font-bold">Manage</button></td>
+                                    <td class="px-6 py-4"><button class="text-primary hover:text-primary/70 hover:scale-110 transition-all text-xs font-bold transform inline-block">Manage</button></td>
                                 </tr>
                                 <tr class="hover:bg-slate-100/50 dark:hover:bg-slate-800/30 transition-all">
                                     <td class="px-6 py-4">
@@ -385,7 +438,7 @@
             <section id="tab-kill-switch" class="dashboard-tab p-6 lg:p-10">
                 <div class="flex justify-between items-center mb-10">
                     <h1 class="text-3xl font-bold text-red-500 flex items-center">
-                        <i data-lucide="shield-alert" class="mr-3"></i> Security & Kill Switches
+                        <i data-lucide="shield-alert" class="me-3"></i> Security & Kill Switches
                     </h1>
                 </div>
                 <div class="grid md:grid-cols-2 gap-10">
@@ -405,7 +458,9 @@
                                     <p class="font-bold">Latency Spike > 500ms</p>
                                     <p class="text-[10px] text-slate-500">Auto-disable high-impact flags</p>
                                 </div>
-                                <div class="w-12 h-6 bg-primary rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                                <button class="toggle-switch w-12 h-6 bg-primary rounded-full relative transition-all duration-300 focus:outline-none shadow-inner">
+                                    <div class="dot absolute left-7 top-1 w-4 h-4 bg-white rounded-full transition-all duration-300 shadow-sm"></div>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -416,7 +471,7 @@
             <section id="tab-deployment-reports" class="dashboard-tab p-6 lg:p-10">
                 <h1 class="text-3xl font-bold mb-10">Deployment Intelligence</h1>
                 <div class="glass-card rounded-3xl overflow-hidden">
-                    <div class="table-container">
+                    <div class="overflow-x-auto custom-scrollbar">
                         <table class="w-full text-left">
                             <thead class="bg-slate-100 dark:bg-slate-900">
                                 <tr class="text-[10px] font-bold text-slate-500 uppercase">
@@ -433,6 +488,24 @@
                                     <td class="px-6 py-4"><span class="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded">SUCCESSFUL</span></td>
                                     <td class="px-6 py-4"><button class="text-primary hover:underline text-xs">View Log</button></td>
                                 </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-sm">#RL-2026-8811</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">4 Modified</span></td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-red-500/10 text-red-500 text-[10px] font-bold rounded">ROLLED BACK</span></td>
+                                    <td class="px-6 py-4"><button class="text-primary hover:underline text-xs">View Log</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-sm">#RL-2026-8810</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">8 Active</span></td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-blue-500/10 text-blue-500 text-[10px] font-bold rounded">STAGED</span></td>
+                                    <td class="px-6 py-4"><button class="text-primary hover:underline text-xs">View Log</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-sm">#RL-2026-8809</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">2 Cleanup</span></td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-yellow-500/10 text-yellow-500 text-[10px] font-bold rounded">SCHEDULED</span></td>
+                                    <td class="px-6 py-4"><button class="text-primary hover:underline text-xs">View Log</button></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -441,13 +514,70 @@
 
             <!-- 8. Team Access Tab -->
             <section id="tab-team-access" class="dashboard-tab p-6 lg:p-10">
-                <h1 class="text-3xl font-bold mb-10">Access Governance</h1>
-                <div class="grid lg:grid-cols-4 gap-6 mb-10">
-                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">SA</div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                    <div>
+                        <h1 class="text-3xl font-bold mb-2">Access Governance</h1>
+                        <p class="text-slate-500">Manage team roles and environment permissions</p>
+                    </div>
+                    <button class="px-6 py-3 bg-primary text-white rounded-xl font-bold flex items-center space-x-2 shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+                        <i data-lucide="user-plus" class="w-5 h-5"></i>
+                        <span>Invite Member</span>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4 border-l-4 border-primary">
+                        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg shadow-primary/20">SA</div>
                         <div>
                             <p class="text-sm font-bold">Shalan A.</p>
-                            <p class="text-[10px] text-slate-500 uppercase">Owner</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Owner / Admin</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">JD</div>
+                        <div>
+                            <p class="text-sm font-bold">John Doe</p>
+                            <p class="text-[10px] text-slate-500 uppercase">DevOps Engineer</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">MS</div>
+                        <div>
+                            <p class="text-sm font-bold">Maria Smith</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Senior Developer</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold">AL</div>
+                        <div>
+                            <p class="text-sm font-bold">Alex Lee</p>
+                            <p class="text-[10px] text-slate-500 uppercase">QA Lead</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6">Environment Permissions</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-green-500/10 text-green-500 rounded-xl flex items-center justify-center"><i data-lucide="globe" class="w-5 h-5"></i></div>
+                                <div>
+                                    <p class="font-bold">Production</p>
+                                    <p class="text-xs text-slate-500">Requires 2-person approval for all flag changes</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded-full">RESTRICTED</span>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center"><i data-lucide="layers" class="w-5 h-5"></i></div>
+                                <div>
+                                    <p class="font-bold">Staging</p>
+                                    <p class="text-xs text-slate-500">Automated sync with CI/CD pipeline</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 text-[10px] font-bold rounded-full">OPEN ACCESS</span>
                         </div>
                     </div>
                 </div>
@@ -456,13 +586,84 @@
             <!-- 9. Settings Tab -->
             <section id="tab-settings" class="dashboard-tab p-6 lg:p-10">
                 <h1 class="text-3xl font-bold mb-10">Global Configuration</h1>
-                <div class="max-w-2xl glass-card p-8 rounded-3xl">
-                    <h3 class="text-xl font-bold mb-6 flex items-center"><i data-lucide="key" class="mr-2 text-primary"></i> SDK Integration Keys</h3>
-                    <div>
-                        <label class="text-xs font-bold text-slate-500 uppercase mb-2 block">Production Server Key</label>
-                        <div class="flex space-x-2">
-                            <input type="password" value="fm_prod_8822_99xxyyzz" readonly class="flex-1 px-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl font-mono text-xs">
-                            <button class="p-3 bg-slate-200 dark:bg-slate-800 rounded-xl"><i data-lucide="copy" class="w-4 h-4"></i></button>
+                <div class="grid lg:grid-cols-2 gap-10">
+                    <div class="space-y-10">
+                        <div class="glass-card p-8 rounded-3xl">
+                            <h3 class="text-xl font-bold mb-6 flex items-center"><i data-lucide="key" class="me-2 text-primary"></i> SDK Integration Keys</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="text-xs font-bold text-slate-500 uppercase mb-2 block">Production Server Key</label>
+                                    <div class="flex space-x-2">
+                                        <input type="password" value="fm_prod_8822_99xxyyzz" readonly class="flex-1 px-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl font-mono text-xs">
+                                        <button class="p-3 bg-slate-200 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white hover:scale-110 transition-all duration-300 group" title="Copy to Clipboard">
+                                            <i data-lucide="copy" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-slate-500 uppercase mb-2 block">Staging Client Key</label>
+                                    <div class="flex space-x-2">
+                                        <input type="password" value="fm_stg_1144_aabbccdd" readonly class="flex-1 px-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl font-mono text-xs">
+                                        <button class="p-3 bg-slate-200 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white hover:scale-110 transition-all duration-300 group" title="Copy to Clipboard">
+                                            <i data-lucide="copy" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-3xl">
+                            <h3 class="text-xl font-bold mb-6 flex items-center"><i data-lucide="bell" class="me-2 text-primary"></i> Notification Webhooks</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-[#4A154B] text-white rounded flex items-center justify-center"><i data-lucide="slack" class="w-4 h-4"></i></div>
+                                        <span class="font-bold text-sm">Slack: #release-alerts</span>
+                                    </div>
+                                    <span class="px-2 py-0.5 bg-green-500/10 text-green-500 text-[10px] font-bold rounded">ACTIVE</span>
+                                </div>
+                                <div class="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-[#7289da] text-white rounded flex items-center justify-center"><i data-lucide="message-square" class="w-4 h-4"></i></div>
+                                        <span class="font-bold text-sm">Discord: Engineering</span>
+                                    </div>
+                                    <span class="px-2 py-0.5 bg-slate-300 dark:bg-slate-700 text-slate-500 text-[10px] font-bold rounded">DISABLED</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-10">
+                        <div class="glass-card p-8 rounded-3xl">
+                            <h3 class="text-xl font-bold mb-6 flex items-center"><i data-lucide="database" class="me-2 text-primary"></i> Data Retention Policy</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-bold">Audit Log History</span>
+                                        <span class="text-sm text-primary font-bold">365 Days</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-primary h-full w-full"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-bold">Evaluation Storage</span>
+                                        <span class="text-sm text-primary font-bold">90 Days</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-primary h-full w-[25%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-3xl border-2 border-red-500/10">
+                            <h3 class="text-xl font-bold mb-4 text-red-500">Danger Zone</h3>
+                            <p class="text-xs text-slate-500 mb-6">These actions are permanent and cannot be undone.</p>
+                            <button class="w-full py-3 border-2 border-red-500 text-red-500 rounded-xl font-bold hover:bg-red-500 hover:text-white transition-all text-sm">
+                                DELETE PROJECT & ALL DATA
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -507,21 +708,24 @@
             });
 
             function openSidebar() {
-                sidebar.classList.remove('-translate-x-full');
+                const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+                sidebar.classList.remove(isRtl ? 'translate-x-full' : '-translate-x-full');
                 overlay.classList.remove('hidden');
                 toggleIcon.setAttribute('data-lucide', 'x');
                 lucide.createIcons();
             }
 
             function closeSidebar() {
-                sidebar.classList.add('-translate-x-full');
+                const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+                sidebar.classList.add(isRtl ? 'translate-x-full' : '-translate-x-full');
                 overlay.classList.add('hidden');
                 toggleIcon.setAttribute('data-lucide', 'menu');
                 lucide.createIcons();
             }
 
             toggleBtn.addEventListener('click', () => {
-                const isOpen = !sidebar.classList.contains('-translate-x-full');
+                const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+                const isOpen = isRtl ? !sidebar.classList.contains('translate-x-full') : !sidebar.classList.contains('-translate-x-full');
                 if (isOpen) closeSidebar();
                 else openSidebar();
             });
@@ -589,6 +793,51 @@
                     }]
                 },
                 options: { ...chartConfig, plugins: { legend: { display: true, position: 'bottom', labels: { color: '#94a3b8' } } } }
+            });
+
+            // Sidebar Toggle Logic
+            const sidebarBtn = document.getElementById('mobile-sidebar-btn');
+            const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
+            const sidebar = document.getElementById('dashboard-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            
+            if (sidebarBtn && sidebar && overlay) {
+                const toggleSidebar = () => {
+                    sidebar.classList.toggle('-translate-x-full');
+                    overlay.classList.toggle('hidden');
+                    document.body.classList.toggle('overflow-hidden');
+                };
+
+                sidebarBtn.addEventListener('click', toggleSidebar);
+                if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', toggleSidebar);
+                overlay.addEventListener('click', toggleSidebar);
+
+                // Close on link click
+                sidebar.querySelectorAll('button').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth < 1280 && !link.classList.contains('sidebar-link')) return; // Don't close for system toggles
+                        if (window.innerWidth < 1280) toggleSidebar();
+                    });
+                });
+            }
+
+            // Toggle Switch Logic
+            const toggles = document.querySelectorAll('.toggle-switch');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const dot = toggle.querySelector('.dot');
+                    const isActive = toggle.classList.contains('bg-primary');
+                    
+                    if (isActive) {
+                        toggle.classList.remove('bg-primary');
+                        toggle.classList.add('bg-slate-300', 'dark:bg-slate-800');
+                        dot.style.left = '4px';
+                    } else {
+                        toggle.classList.add('bg-primary');
+                        toggle.classList.remove('bg-slate-300', 'dark:bg-slate-800');
+                        dot.style.left = '28px';
+                    }
+                });
             });
         });
     </script>
