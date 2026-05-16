@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
+            header.classList.toggle('menu-open');
         });
     }
 

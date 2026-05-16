@@ -78,28 +78,25 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden xl:hidden flex-col bg-slate-900/95 backdrop-blur-xl absolute top-full left-0 w-full p-6 space-y-4 border-b border-slate-800">
-            <a href="index.html" class="text-lg font-medium hover:text-primary transition-colors">Home1</a>
-            <a href="home2.html" class="text-lg font-medium hover:text-primary transition-colors">Home2</a>
-            <a href="about.html" class="text-lg font-medium hover:text-primary transition-colors">About</a>
-            <a href="services.html" class="text-lg font-medium hover:text-primary transition-colors">Services</a>
+        <div id="mobile-menu" class="hidden xl:hidden flex-col bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl absolute top-full left-0 w-full p-6 space-y-4 border-b border-slate-200 dark:border-slate-800 shadow-xl">
+            <a href="index.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Home1</a>
+            <a href="home2.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Home2</a>
+            <a href="about.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">About</a>
+            <a href="services.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Services</a>
             <a href="case-studies.html" class="text-lg font-medium text-primary transition-colors">Case Studies</a>
-            <a href="blog.html" class="text-lg font-medium hover:text-primary transition-colors">Blog</a>
-            <a href="dashboard.html" class="text-lg font-medium hover:text-primary transition-colors">Dashboard</a>
-            <a href="contact.html" class="text-lg font-medium hover:text-primary transition-colors">Contact</a>
+            <a href="blog.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Blog</a>
+            <a href="dashboard.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Dashboard</a>
+            <a href="contact.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Contact</a>
             <div class="pt-4 flex flex-col space-y-3">
                 <a href="login.html" class="w-full py-4 bg-primary text-white text-center rounded-2xl font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.02] transition-all active:scale-[0.98]">Login</a>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-800">
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">System</span>
-                    <div class="flex items-center space-x-2">
-                        <button class="rtl-toggle p-2 bg-slate-800 rounded-xl hover:bg-primary transition-all">
-                            <i data-lucide="languages" class="w-5 h-5"></i>
-                        </button>
-                        <button class="theme-toggle p-2 bg-slate-800 rounded-xl hover:bg-primary transition-all">
-                            <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
-                            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
-                        </button>
-                    </div>
+                <div class="flex items-center justify-center space-x-4 pt-4 border-t border-slate-800">
+                    <button class="rtl-toggle p-2 bg-slate-800 rounded-xl hover:bg-primary transition-all">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <button class="theme-toggle p-2 bg-slate-800 rounded-xl hover:bg-primary transition-all">
+                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -174,11 +171,11 @@
         <!-- 3. Rollout & Deployment Analytics Showcase -->
         <section class="py-24 bg-secondary relative overflow-hidden">
             <div class="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
-                <div class="lg:flex items-center space-x-20">
-                    <div class="lg:w-1/2 mb-12 lg:mb-0 reveal">
+                <div class="lg:flex items-center lg:space-x-20 text-center lg:text-left">
+                    <div class="lg:w-1/2 mb-12 lg:mb-0 reveal flex flex-col items-center lg:items-start">
                         <h2 class="text-2xl sm:text-4xl font-bold text-white mb-8 whitespace-nowrap sm:whitespace-normal">Deep Analytics Integration</h2>
-                        <p class="text-slate-400 mb-10">We don't just toggle; we measure. Every case study is backed by rigorous telemetry analysis showing the direct impact of release orchestration on system health.</p>
-                        <div class="grid grid-cols-2 gap-8">
+                        <p class="text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0">We don't just toggle; we measure. Every case study is backed by rigorous telemetry analysis showing the direct impact of release orchestration on system health.</p>
+                        <div class="grid grid-cols-2 gap-8 w-full max-w-md">
                             <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
                                 <div class="text-3xl font-bold text-primary mb-2">-85%</div>
                                 <p class="text-xs text-slate-500 uppercase tracking-widest">Incident Rate</p>
@@ -189,8 +186,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="lg:w-2/5 ms-auto mt-12 lg:mt-0 reveal delay-300">
-                        <div class="glass-card p-4 rounded-3xl border-white/5 w-full lg:max-w-lg mx-auto">
+                    <div class="lg:w-2/5 ms-auto mt-12 lg:mt-0 reveal delay-300 flex justify-center lg:justify-end">
+                        <div class="glass-card p-4 rounded-3xl border-white/5 w-full max-w-sm lg:max-w-lg mx-auto lg:mx-0">
                             <img src="assets/images/dashboard-monitoring.png" alt="Analytics View" class="rounded-2xl w-full h-auto object-cover">
                         </div>
                     </div>

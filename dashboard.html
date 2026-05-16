@@ -98,17 +98,14 @@
 
                 <!-- Sidebar Footer Utilities -->
                 <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-6">
-                    <div class="flex items-center justify-between px-3 xl:hidden">
-                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">System</span>
-                        <div class="flex items-center space-x-2">
-                            <button class="rtl-toggle p-2.5 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-primary transition-all active:scale-95 shadow-sm">
-                                <i data-lucide="languages" class="w-4 h-4"></i>
-                            </button>
-                            <button class="theme-toggle p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-primary hover:text-white transition-all active:scale-95 shadow-sm">
-                                <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
-                                <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-center space-x-4 px-3 xl:hidden">
+                        <button class="rtl-toggle p-2.5 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-primary transition-all active:scale-95 shadow-sm">
+                            <i data-lucide="languages" class="w-4 h-4"></i>
+                        </button>
+                        <button class="theme-toggle p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-primary hover:text-white transition-all active:scale-95 shadow-sm">
+                            <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+                            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                        </button>
                     </div>
                     <a href="index.html" class="w-full flex items-center justify-center space-x-3 p-4 bg-red-500/10 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 font-bold group">
                         <i data-lucide="log-out" class="w-5 h-5 transition-transform group-hover:-translate-x-1"></i>
@@ -119,7 +116,7 @@
         </aside>
 
         <!-- Dashboard Content Container -->
-        <div class="flex-1 w-full min-w-0 bg-slate-50 dark:bg-slate-950 overflow-y-auto overflow-x-hidden relative custom-scrollbar">
+        <div id="dashboard-content" class="flex-1 w-full min-w-0 bg-slate-50 dark:bg-slate-950 overflow-y-auto overflow-x-hidden relative custom-scrollbar">
             
             <!-- Global Dashboard Header -->
             <header class="sticky top-0 z-[40] w-full bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-xl border-b border-primary/20 px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shadow-sm transition-all duration-300">
@@ -136,7 +133,7 @@
                         
                         <!-- Brand/Page Title -->
                         <div class="flex items-center space-x-3 xl:static xl:translate-x-0">
-                            <h1 class="text-base font-bold text-slate-900 dark:text-white xl:text-2xl whitespace-nowrap">Dashboard</h1>
+                            <span class="text-lg sm:text-xl xl:text-2xl font-bold text-slate-900 dark:text-white whitespace-nowrap font-['Outfit']">Dashboard</span>
                         </div>
                     </div>
 
@@ -180,7 +177,7 @@
             <section id="tab-overview" class="dashboard-tab active p-6 lg:p-10">
                 <div class="flex flex-col md:flex-row justify-between items-center md:items-center mb-10 gap-6 text-center md:text-left">
                     <div class="w-full md:w-auto">
-                        <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-2">Platform Overview</h1>
+                        <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-2">Platform Overview</h2>
                         <p class="text-[10px] sm:text-xs text-slate-500">Live system status across 14 clusters</p>
                     </div>
                         <div class="flex flex-wrap gap-3 justify-center md:justify-start">
@@ -263,7 +260,7 @@
             <section id="tab-feature-flags" class="dashboard-tab p-6 lg:p-10">
                 <div class="flex flex-col sm:flex-row justify-between items-center sm:items-center mb-10 gap-6 text-center sm:text-left">
                     <div class="w-full sm:w-auto">
-                        <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-2">Feature Management</h1>
+                        <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-2">Feature Management</h2>
                         <p class="text-[10px] sm:text-xs text-slate-500">Orchestrate your production feature sets</p>
                     </div>
                     <button class="px-5 py-2.5 sm:px-6 sm:py-3 bg-primary text-white rounded-xl text-xs sm:text-base font-bold flex items-center space-x-2 shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-105 hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 transform active:scale-95 group mx-auto sm:mx-0 shrink-0">
@@ -333,7 +330,7 @@
 
             <!-- 3. Rollout Analytics Tab -->
             <section id="tab-rollout-analytics" class="dashboard-tab p-6 lg:p-10">
-                <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-6 text-center sm:text-left">Rollout Intelligence</h1>
+                <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 text-center sm:text-left">Rollout Intelligence</h2>
                 <div class="grid lg:grid-cols-2 gap-10">
                     <div class="glass-card p-8 rounded-3xl">
                         <h3 class="text-lg sm:text-xl font-bold mb-6">Traffic Distribution (Region)</h3>
@@ -352,7 +349,7 @@
 
             <!-- 4. Canary Releases Tab -->
             <section id="tab-canary-releases" class="dashboard-tab p-6 lg:p-10">
-                <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-6 text-center sm:text-left">Canary Orchestration</h1>
+                <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 text-center sm:text-left">Canary Orchestration</h2>
                 <div class="grid md:grid-cols-3 gap-6 mb-10">
                     <div class="glass-card p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent">
                         <h3 class="text-xs sm:text-sm font-bold text-primary mb-2 uppercase">Active Canaries</h3>
@@ -395,7 +392,7 @@
 
             <!-- 5. A/B Experiments Tab -->
             <section id="tab-ab-experiments" class="dashboard-tab p-6 lg:p-10">
-                <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-6 text-center sm:text-left">Experiment Control</h1>
+                <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 text-center sm:text-left">Experiment Control</h2>
                 <div class="grid lg:grid-cols-2 gap-10">
                     <div class="glass-card p-8 rounded-3xl">
                         <h3 class="text-lg sm:text-xl font-bold mb-6">Experiment: `checkout-button-color`</h3>
@@ -428,16 +425,16 @@
             <!-- 6. Kill Switch Tab -->
             <section id="tab-kill-switch" class="dashboard-tab p-6 lg:p-10">
                 <div class="flex justify-center sm:justify-between items-center mb-10 text-center sm:text-left">
-                    <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold text-red-500 flex items-center justify-center sm:justify-start whitespace-nowrap">
+                    <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-red-500 flex items-center justify-center sm:justify-start whitespace-nowrap">
                         <i data-lucide="shield-alert" class="me-2 w-5 h-5 sm:w-6 sm:h-6"></i> Security & Kill Switches
-                    </h1>
+                    </h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-10">
                     <div class="glass-card p-8 rounded-3xl border-2 border-red-500/20">
                         <h3 class="text-md sm:text-xl font-bold mb-6">Emergency Global Kill Switch</h3>
                         <p class="text-[10px] sm:text-sm text-slate-500 mb-8">Disables ALL active feature flags across the production environment.</p>
-                        <button class="w-full py-4 bg-red-500 text-white rounded-2xl font-bold text-[10px] sm:text-base md:text-lg hover:bg-red-600 transition-all shadow-xl shadow-red-500/20 flex flex-row items-center justify-center space-x-2 sm:space-x-3 text-center group">
-                            <i data-lucide="power" class="w-4 h-4 sm:w-6 sm:h-6 transition-transform group-active:scale-90"></i>
+                        <button class="w-full py-3 sm:py-4 bg-red-500 text-white rounded-2xl font-bold text-[10px] sm:text-xs md:text-sm lg:text-base hover:bg-red-600 transition-all shadow-xl shadow-red-500/20 flex flex-row items-center justify-center space-x-2 sm:space-x-3 text-center group px-4">
+                            <i data-lucide="power" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-active:scale-90 shrink-0"></i>
                             <span class="whitespace-nowrap">INITIATE GLOBAL SHUTDOWN</span>
                         </button>
                     </div>
@@ -460,7 +457,7 @@
 
             <!-- 7. Deployment Reports Tab -->
             <section id="tab-deployment-reports" class="dashboard-tab p-6 lg:p-10">
-                <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-6 text-center sm:text-left">Deployment Intelligence</h1>
+                <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 text-center sm:text-left">Deployment Intelligence</h2>
                 <div class="glass-card rounded-3xl overflow-hidden">
                     <div class="overflow-x-auto custom-scrollbar">
                         <table class="w-full text-left">
@@ -507,7 +504,7 @@
             <section id="tab-team-access" class="dashboard-tab p-6 lg:p-10">
                 <div class="flex flex-col sm:flex-row justify-between items-center sm:items-center mb-10 gap-6 text-center sm:text-left">
                     <div class="w-full sm:w-auto">
-                        <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-2">Access Governance</h1>
+                        <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-2">Access Governance</h2>
                         <p class="text-[10px] sm:text-xs text-slate-500">Manage team roles and environment permissions</p>
                     </div>
                     <button class="px-5 py-2.5 sm:px-6 sm:py-3 bg-primary text-white rounded-xl text-xs sm:text-base font-bold flex items-center space-x-2 shadow-lg shadow-primary/20 hover:scale-105 transition-all mx-auto sm:mx-0 shrink-0">
@@ -576,7 +573,7 @@
 
             <!-- 9. Settings Tab -->
             <section id="tab-settings" class="dashboard-tab p-6 lg:p-10">
-                <h1 class="text-base sm:text-lg md:text-xl xl:text-3xl font-bold mb-6 text-center sm:text-left">Global Configuration</h1>
+                <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 text-center sm:text-left">Global Configuration</h2>
                 <div class="grid lg:grid-cols-2 gap-10">
                     <div class="space-y-10">
                         <div class="glass-card p-6 sm:p-8 rounded-3xl">
@@ -676,6 +673,7 @@
             const overlay = document.getElementById('sidebar-overlay');
             const sidebarBtn = document.getElementById('mobile-sidebar-btn');
             const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
+            const dashboardContent = document.getElementById('dashboard-content');
 
             // Sidebar Functions
             function openSidebar() {
@@ -713,6 +711,9 @@
 
                     if (window.innerWidth < 1024) {
                         closeSidebar();
+                    }
+                    if (dashboardContent) {
+                        dashboardContent.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     lucide.createIcons();
