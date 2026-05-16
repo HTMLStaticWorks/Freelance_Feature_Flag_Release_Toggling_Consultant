@@ -34,7 +34,7 @@
 
     <!-- Navbar -->
     <header class="fixed top-0 w-full z-50 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <nav class="container mx-auto px-8 sm:px-12 lg:px-16 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-2 shrink-0">
                 <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shrink-0">
                     <i data-lucide="toggle-right" class="text-white w-6 h-6"></i>
@@ -78,17 +78,29 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden xl:hidden flex-col bg-slate-900/95 backdrop-blur-xl absolute top-full left-0 w-full p-6 space-y-4 border-b border-slate-800">
-            <a href="index.html" class="text-lg font-medium">Home1</a>
-            <a href="home2.html" class="text-lg font-medium">Home2</a>
-            <a href="about.html" class="text-lg font-medium">About</a>
-            <a href="services.html" class="text-lg font-medium text-primary">Services</a>
-            <a href="case-studies.html" class="text-lg font-medium">Case Studies</a>
-            <a href="blog.html" class="text-lg font-medium">Blog</a>
-            <a href="dashboard.html" class="text-lg font-medium">Dashboard</a>
-            <a href="contact.html" class="text-lg font-medium">Contact</a>
+        <div id="mobile-menu" class="hidden xl:hidden flex-col bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl absolute top-full left-0 w-full p-6 space-y-4 border-b border-slate-200 dark:border-slate-800 shadow-xl">
+            <a href="index.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Home1</a>
+            <a href="home2.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Home2</a>
+            <a href="about.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">About</a>
+            <a href="services.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Services</a>
+            <a href="case-studies.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Case Studies</a>
+            <a href="blog.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Blog</a>
+            <a href="dashboard.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Dashboard</a>
+            <a href="contact.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Contact</a>
             <div class="pt-4 flex flex-col space-y-3">
                 <a href="login.html" class="w-full py-4 bg-primary text-white text-center rounded-2xl font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.02] transition-all active:scale-[0.98]">Login</a>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">System</span>
+                    <div class="flex items-center space-x-2">
+                        <button class="rtl-toggle p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-primary hover:text-white transition-all">
+                            <i data-lucide="languages" class="w-5 h-5"></i>
+                        </button>
+                        <button class="theme-toggle p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-primary hover:text-white transition-all">
+                            <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                            <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -113,7 +125,7 @@
         <!-- 2. Service Categories Section -->
         <section class="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 relative overflow-hidden">
             <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
-            <div class="container mx-auto px-6">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16">
                 <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
                     <!-- Service 1 -->
                     <div class="glass-card p-8 rounded-3xl reveal delay-100 text-center flex flex-col justify-between">
@@ -123,7 +135,7 @@
                             </div>
                             <h3 class="text-2xl font-bold mb-4">Strategy Audit</h3>
                             <p class="text-slate-600 dark:text-slate-500 mb-8">Deep-dive into your current deployment pipeline, identifying risks, bottlenecks, and opportunities for flag integration.</p>
-                            <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 mb-10 text-left">
+                            <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 mb-10 w-fit mx-auto text-left">
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-primary mt-1 shrink-0"></i> <span>Pipeline Risk Assessment</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-primary mt-1 shrink-0"></i> <span>Technical Debt Mapping</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-primary mt-1 shrink-0"></i> <span>Actionable Roadmap</span></li>
@@ -144,7 +156,7 @@
                             </div>
                             <h3 class="text-2xl font-bold mb-4">Architecture Design</h3>
                             <p class="text-slate-600 dark:text-slate-500 mb-8">Custom design of feature flag taxonomies, targeting rules, and automated rollout workflows for enterprise scale.</p>
-                            <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 mb-10 text-left">
+                            <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 mb-10 w-fit mx-auto text-left">
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-accent mt-1 shrink-0"></i> <span>Multi-Env Coordination</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-accent mt-1 shrink-0"></i> <span>SDK Implementation Guides</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-accent mt-1 shrink-0"></i> <span>Compliance Guardrails</span></li>
@@ -165,7 +177,7 @@
                             </div>
                             <h3 class="text-2xl font-bold mb-4">Safety Engineering</h3>
                             <p class="text-slate-600 dark:text-slate-400 mb-8">Implementation of automated kill-switches, health-based rollbacks, and advanced canary release triggers.</p>
-                            <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 mb-10 text-left">
+                            <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 mb-10 w-fit mx-auto text-left">
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-primary mt-1 shrink-0"></i> <span>Automated Rollbacks</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-primary mt-1 shrink-0"></i> <span>Observability Integration</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-primary mt-1 shrink-0"></i> <span>Emergency Drill Protocols</span></li>
@@ -184,8 +196,8 @@
 
         <!-- 3. Feature Flag Workflow Section -->
         <section class="py-24 bg-slate-50 dark:bg-slate-900/50">
-            <div class="container mx-auto px-6">
-                <div class="lg:flex items-center space-x-20 text-center lg:text-left">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16">
+                <div class="lg:flex items-center lg:space-x-20 text-center lg:text-left">
                     <div class="lg:w-1/2 reveal">
                         <h2 class="text-2xl sm:text-4xl font-bold mb-8 mx-auto lg:mx-0">The Integration Workflow</h2>
                         <div class="space-y-8 sm:space-y-12">
@@ -224,7 +236,7 @@
 
         <!-- 4. Pricing Section -->
         <section class="py-24">
-            <div class="container mx-auto px-6">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16">
                 <div class="text-center mb-20 reveal">
                     <h2 class="text-2xl sm:text-4xl font-bold mb-4">Enterprise Consulting Packages</h2>
                     <p class="text-slate-500">Transparent pricing for organizations of all sizes.</p>
@@ -236,14 +248,14 @@
                             <h4 class="text-xl font-bold mb-2">Strategic Audit</h4>
                             <div class="text-4xl font-bold mb-6">$4,999 <span class="text-sm text-slate-500 font-normal">/ audit</span></div>
                             <p class="text-sm text-slate-500 mb-8">Perfect for teams looking to identify the gaps in their current release process.</p>
-                            <ul class="space-y-4 text-sm mb-10">
+                            <ul class="space-y-4 text-sm mb-10 w-fit mx-auto text-left">
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Pipeline Analysis</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Security Review</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Tooling Recommendations</span></li>
                                 <li class="flex items-start space-x-2 opacity-30"><i data-lucide="x" class="text-secondary mt-1 shrink-0"></i> <span>Implementation Support</span></li>
                             </ul>
                         </div>
-                        <a href="contact.html" class="block text-center py-4 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl font-bold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">Get Started</a>
+                        <a href="contact.html" class="block text-center py-4 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl font-bold hover:bg-primary dark:hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">Get Started</a>
                     </div>
                     <!-- Professional -->
                     <div class="p-8 bg-slate-900 border border-primary rounded-3xl relative reveal delay-200 shadow-2xl shadow-primary/20 lg:scale-105 z-10 flex flex-col justify-between">
@@ -252,7 +264,7 @@
                             <h4 class="text-xl font-bold mb-2 text-white">Full Implementation</h4>
                             <div class="text-4xl font-bold mb-6 text-white">$14,500 <span class="text-sm text-slate-400 font-normal">/ project</span></div>
                             <p class="text-sm text-slate-400 mb-8">End-to-end architecture and integration for your primary product line.</p>
-                            <ul class="space-y-4 text-sm mb-10 text-slate-300">
+                            <ul class="space-y-4 text-sm mb-10 text-slate-300 w-fit mx-auto text-left">
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Everything in Audit</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>SDK Integration</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Canary Config</span></li>
@@ -267,14 +279,14 @@
                             <h4 class="text-xl font-bold mb-2">Retainer Partner</h4>
                             <div class="text-4xl font-bold mb-6">Custom <span class="text-sm text-slate-500 font-normal">/ monthly</span></div>
                             <p class="text-sm text-slate-500 mb-8">Ongoing support for complex, multi-team enterprise organizations.</p>
-                            <ul class="space-y-4 text-sm mb-10">
+                            <ul class="space-y-4 text-sm mb-10 w-fit mx-auto text-left">
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Unlimited Consulting</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Custom Automation</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>24/7 Priority Support</span></li>
                                 <li class="flex items-start space-x-2"><i data-lucide="check" class="text-primary mt-1 shrink-0"></i> <span>Flag Debt Cleanup</span></li>
                             </ul>
                         </div>
-                        <a href="contact.html" class="block text-center py-4 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl font-bold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">Contact Sales</a>
+                        <a href="contact.html" class="block text-center py-4 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl font-bold hover:bg-primary dark:hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">Contact Sales</a>
                     </div>
                 </div>
             </div>
@@ -282,7 +294,7 @@
 
         <!-- 5. Tool Stack Section -->
         <section class="py-24 bg-slate-100 dark:bg-slate-900/30">
-            <div class="container mx-auto px-6 text-center">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16 text-center">
                 <h2 class="text-3xl font-bold mb-12 reveal">Supported Platform Integrations</h2>
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6 reveal delay-200">
                     <div class="glass-card p-6 rounded-2xl flex flex-col items-center space-y-4 hover:border-primary transition-all group">
@@ -301,9 +313,11 @@
                         <div class="w-16 h-16 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><i data-lucide="server" class="w-10 h-10 text-primary"></i></div>
                         <span class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Flagsmith</span>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center space-y-4 hover:border-primary transition-all group">
-                        <div class="w-16 h-16 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><i data-lucide="shield" class="w-10 h-10 text-primary"></i></div>
-                        <span class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">ConfigCat</span>
+                    <div class="col-span-2 md:col-span-1 flex justify-center">
+                        <div class="glass-card p-6 rounded-2xl flex flex-col items-center space-y-4 hover:border-primary transition-all group w-full md:w-auto">
+                            <div class="w-16 h-16 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><i data-lucide="shield" class="w-10 h-10 text-primary"></i></div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">ConfigCat</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -312,7 +326,7 @@
 
     <!-- Footer -->
     <footer class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-20 border-t border-slate-200 dark:border-slate-900">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-8 sm:px-12 lg:px-16">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 lg:col-span-1">
                     <a href="index.html" class="flex items-center space-x-2 mb-6">

@@ -34,7 +34,7 @@
 
     <!-- Navbar -->
     <header class="fixed top-0 w-full z-50 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <nav class="container mx-auto px-8 sm:px-12 lg:px-16 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-2 shrink-0">
                 <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shrink-0">
                     <i data-lucide="toggle-right" class="text-white w-6 h-6"></i>
@@ -78,22 +78,34 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden xl:hidden flex-col bg-slate-900/95 backdrop-blur-xl absolute top-full left-0 w-full p-6 space-y-4 border-b border-slate-800">
-            <a href="index.html" class="text-lg font-medium">Home1</a>
-            <a href="home2.html" class="text-lg font-medium text-primary">Home2</a>
-            <a href="about.html" class="text-lg font-medium">About</a>
-            <a href="services.html" class="text-lg font-medium">Services</a>
-            <a href="case-studies.html" class="text-lg font-medium">Case Studies</a>
-            <a href="blog.html" class="text-lg font-medium">Blog</a>
-            <a href="dashboard.html" class="text-lg font-medium">Dashboard</a>
-            <a href="contact.html" class="text-lg font-medium">Contact</a>
+        <div id="mobile-menu" class="hidden xl:hidden flex-col bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl absolute top-full left-0 w-full p-6 space-y-4 border-b border-slate-200 dark:border-slate-800 shadow-xl">
+            <a href="index.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Home1</a>
+            <a href="home2.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Home2</a>
+            <a href="about.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">About</a>
+            <a href="services.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Services</a>
+            <a href="case-studies.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Case Studies</a>
+            <a href="blog.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Blog</a>
+            <a href="dashboard.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Dashboard</a>
+            <a href="contact.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Contact</a>
             <div class="pt-4 flex flex-col space-y-3">
                 <a href="login.html" class="w-full py-4 bg-primary text-white text-center rounded-2xl font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.02] transition-all active:scale-[0.98]">Login</a>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">System</span>
+                    <div class="flex items-center space-x-2">
+                        <button class="rtl-toggle p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-primary hover:text-white transition-all">
+                            <i data-lucide="languages" class="w-5 h-5"></i>
+                        </button>
+                        <button class="theme-toggle p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-primary hover:text-white transition-all">
+                            <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                            <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="pt-20">
+    <main>
         <!-- 1. Hero Section -->
         <section class="relative min-h-screen flex items-center overflow-hidden hero-section">
             <!-- Background Image with Cinematic Overlay -->
@@ -112,7 +124,7 @@
                     </p>
                     <div class="flex flex-wrap gap-6">
                         <a href="#demo" class="px-8 py-4 bg-white text-secondary rounded-xl font-bold hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 shadow-lg shadow-white/10 text-center">Watch Platform Demo</a>
-                        <a href="contact.html" class="px-8 py-4 bg-secondary text-white rounded-xl font-bold hover:bg-secondary/90 transition-all shadow-lg text-center">Request Enterprise Audit</a>
+                        <a href="contact.html" class="px-8 py-4 border border-white/20 text-white rounded-xl font-bold hover:bg-primary/20 hover:border-primary/50 transition-all transform hover:-translate-y-1 shadow-lg text-center">Request Enterprise Audit</a>
                     </div>
                 </div>
                 <div class="lg:col-span-5 reveal delay-200">
@@ -158,7 +170,7 @@
 
         <!-- 2. Deployment Platform Analytics -->
         <section class="py-24">
-            <div class="container mx-auto px-6">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16">
                 <div class="grid lg:grid-cols-2 gap-20 items-center">
                     <div class="reveal">
                         <img src="assets/images/devops-stack.png" alt="Deployment Platform" class="rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full h-80 object-cover">
@@ -175,7 +187,9 @@
                             </div>
                             <div class="glass-card p-4 sm:p-6 rounded-2xl flex flex-col sm:flex-row items-center sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
                                 <div class="w-12 h-12 bg-blue-500/20 text-blue-500 rounded-xl flex items-center justify-center shrink-0">
-                                    <i data-lucide="github" class="w-6 h-6"></i>
+                                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                                    </svg>
                                 </div>
                                 <span class="font-bold text-sm sm:text-base">GitHub Actions</span>
                             </div>
@@ -199,7 +213,7 @@
 
         <!-- 3. Experiment Strategy -->
         <section class="py-24 bg-slate-50 dark:bg-slate-900/50 relative">
-            <div class="container mx-auto px-6">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16">
                 <div class="text-center mb-20 reveal">
                     <h2 class="text-4xl font-bold mb-4">Precision Experimentation</h2>
                     <p class="text-slate-400">Run server-side experiments that don't flicker or fail. Data-driven releases for modern product teams.</p>
@@ -226,25 +240,25 @@
 
         <!-- 4. Dashboard Preview -->
         <section class="py-24 overflow-hidden">
-            <div class="container mx-auto px-6">
-                <div class="bg-gradient-to-br from-secondary to-slate-950 rounded-3xl p-10 lg:p-16 relative reveal">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16">
+                <div class="bg-gradient-to-br from-slate-100 to-white dark:from-secondary dark:to-slate-950 rounded-3xl p-10 lg:p-16 relative reveal border border-slate-200 dark:border-none">
                     <div class="lg:flex items-center space-x-20">
                         <div class="lg:w-1/2 mb-12 lg:mb-0">
-                            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Real-Time Health Monitoring</h2>
-                            <p class="text-slate-300 mb-10">Get a bird's-eye view of every flag in your system. Monitor eval rates, error spikes, and performance regressions instantly.</p>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-secondary dark:text-white mb-6">Real-Time Health Monitoring</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mb-10">Get a bird's-eye view of every flag in your system. Monitor eval rates, error spikes, and performance regressions instantly.</p>
                             <div class="space-y-6">
-                                <div class="flex items-center space-x-4 p-4 bg-white/10 rounded-2xl border border-white/10">
+                                <div class="flex items-center space-x-4 p-4 bg-slate-200/50 dark:bg-white/10 rounded-2xl border border-slate-300/30 dark:border-white/10">
                                     <div class="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-                                    <span class="text-sm font-medium text-white">99.9% Evaluation Success Rate</span>
+                                    <span class="text-sm font-medium text-secondary dark:text-white">99.9% Evaluation Success Rate</span>
                                 </div>
-                                <div class="flex items-center space-x-4 p-4 bg-white/10 rounded-2xl border border-white/10">
-                                    <div class="w-2 h-2 bg-secondary rounded-full"></div>
-                                    <span class="text-sm font-medium text-white">Auto-Rollback Trigger: Active</span>
+                                <div class="flex items-center space-x-4 p-4 bg-slate-200/50 dark:bg-white/10 rounded-2xl border border-slate-300/30 dark:border-white/10">
+                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                    <span class="text-sm font-medium text-secondary dark:text-white">Auto-Rollback Trigger: Active</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="lg:w-2/5 ms-auto">
-                            <div class="glass-card p-4 rounded-3xl rotate-3 transform hover:rotate-0 transition-all duration-500 max-w-md mx-auto">
+                        <div class="lg:w-2/5 ms-auto mt-12 lg:mt-0">
+                            <div class="glass-card p-4 rounded-3xl lg:rotate-3 transform hover:rotate-0 transition-all duration-500 w-full lg:max-w-md mx-auto">
                                 <img src="assets/images/case-study-2.png" alt="Dashboard Dashboard" class="rounded-2xl w-full h-auto object-cover">
                             </div>
                         </div>
@@ -256,7 +270,7 @@
         <!-- 5. Feature Highlights Section -->
         <section class="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 relative">
             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] pointer-events-none"></div>
-            <div class="container mx-auto px-6 relative z-10">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
                 <div class="text-center mb-20 reveal">
                     <h2 class="text-4xl font-bold mb-4">Actionable Insights</h2>
                     <p class="text-slate-500">Every consultation includes detailed monthly reports on deployment health and flag debt.</p>
@@ -284,8 +298,14 @@
                     <div class="glass-card p-6 rounded-3xl reveal delay-300 text-center">
                         <h4 class="font-bold text-primary mb-4 text-lg">Success Metrics</h4>
                         <div class="flex items-center justify-center h-32 mb-4">
-                            <div class="w-24 h-24 rounded-full border-8 border-slate-200 dark:border-slate-800 border-t-primary flex items-center justify-center">
-                                <span class="font-bold">94%</span>
+                            <div class="relative w-24 h-24">
+                                <svg class="w-full h-full transform -rotate-90">
+                                    <circle cx="48" cy="48" r="40" stroke="currentColor" stroke-width="8" fill="transparent" class="text-slate-200 dark:text-slate-800" />
+                                    <circle cx="48" cy="48" r="40" stroke="currentColor" stroke-width="8" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="15" class="text-primary" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="font-bold text-secondary dark:text-white">94%</span>
+                                </div>
                             </div>
                         </div>
                         <p class="text-xs text-slate-500">Rollout Success Rate</p>
@@ -305,7 +325,7 @@
 
         <!-- 6. Enterprise Growth Section -->
         <section class="py-24">
-            <div class="container mx-auto px-6 text-center">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16 text-center">
                 <div class="reveal max-w-4xl mx-auto">
                     <h2 class="text-5xl font-bold mb-8">Scaling Continuous Delivery Maturity</h2>
                     <p class="text-xl text-slate-500 mb-12">Join the ranks of high-performing engineering organizations that use FlagMasters to eliminate deployment risk.</p>
@@ -358,7 +378,7 @@
 
     <!-- Footer -->
     <footer class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-20 border-t border-slate-200 dark:border-slate-900">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-8 sm:px-12 lg:px-16">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 lg:col-span-1">
                     <a href="index.html" class="flex items-center space-x-2 mb-6">
