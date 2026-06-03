@@ -183,12 +183,84 @@
                     <!-- Card 3 -->
                     <div class="glass-card p-8 rounded-3xl reveal delay-300 text-center flex flex-col items-center md:col-span-2 lg:col-span-1">
                         <div class="text-primary mb-6"><i data-lucide="users" class="w-12 h-12 mx-auto"></i></div>
-                        <h3 class="text-xl font-bold mb-4">Team Culture</h3>
+                        <h3 class="text-xl font-bold mb-4">Culture Alignment</h3>
                         <ul class="space-y-3 text-slate-500 text-sm text-left">
                             <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-1 shrink-0"></i> <span>Stakeholder Alignment</span></li>
                             <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-1 shrink-0"></i> <span>Flag Debt Mitigation</span></li>
                             <li class="flex items-start space-x-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-1 shrink-0"></i> <span>Training & Workshops</span></li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.5 Working Approach & Business Benefits Section -->
+        <section class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
+            <div class="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <!-- Column 1: Working Approach -->
+                    <div class="reveal">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 border border-primary/20">The Embedded Consultant Model</span>
+                        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">My Working Approach</h2>
+                        <p class="text-base text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            I don't operate like traditional agencies that assign junior developers and pass along bloated project fees. When you hire me, you get a dedicated, senior release strategist who embeds directly into your Slack channels, git repositories, and pipeline architecture.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">1</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white">Direct Integration</h4>
+                                    <p class="text-sm text-slate-500">I join your standups, work directly with your engineering leads, and audit your real codebase to write custom wrappers and flags.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">2</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white">Developer Empowerment</h4>
+                                    <p class="text-sm text-slate-500">I conduct hands-on workshops and design flag naming rules so your internal teams can maintain the architecture independently.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">3</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white">Tool Agnostic Strategy</h4>
+                                    <p class="text-sm text-slate-500">Whether you use LaunchDarkly, AWS AppConfig, Flagsmith, or an open-source self-hosted Unleash stack, I configure what is right for your budget.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Business Benefits -->
+                    <div class="reveal delay-200">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-bold mb-6 border border-accent/20">Measurable Value</span>
+                        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">How Your Business Benefits</h2>
+                        <p class="text-base text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            Feature flagging isn't just a developer convenience; it's a critical commercial engine that drives business velocity, limits downtime costs, and increases user retention.
+                        </p>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary/30 transition-all">
+                                <div class="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+                                <h4 class="font-bold mb-2">Zero Release Risk</h4>
+                                <p class="text-xs text-slate-500">Instantly rollback faulty releases using automated kill-switches, protecting conversion rates and customer satisfaction.</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary/30 transition-all">
+                                <div class="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                                <h4 class="font-bold mb-2">4x Launch Velocity</h4>
+                                <p class="text-xs text-slate-500">Decouple technical merges from business releases. Product managers control when features launch with the click of a button.</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary/30 transition-all">
+                                <div class="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"><i data-lucide="activity" class="w-5 h-5"></i></div>
+                                <h4 class="font-bold mb-2">Safe Testing in Prod</h4>
+                                <p class="text-xs text-slate-500">Safely test new algorithms and payment flows with production data on a small cohort before exposing it globally.</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary/30 transition-all">
+                                <div class="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+                                <h4 class="font-bold mb-2">Clean Flag Hygiene</h4>
+                                <p class="text-xs text-slate-500">Avoid technical debt with my custom cleaning policies, ensuring stale flags are archived rather than lingering indefinitely.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -252,7 +324,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-20 border-t border-slate-200 dark:border-slate-900">
+    <footer class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 pt-20 pb-8 border-t border-slate-200 dark:border-slate-900">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 lg:col-span-1">
@@ -262,7 +334,7 @@
                         </div>
                         <span class="text-2xl font-bold font-['Outfit'] tracking-tight text-secondary dark:text-white">Flag<span class="text-primary">Masters</span></span>
                     </a>
-                    <p class="text-sm leading-relaxed mb-6">Enterprise-grade feature flag strategy and release toggling consulting. Built for high-velocity DevOps teams.</p>
+                    <p class="text-sm leading-relaxed mb-6">Enterprise-grade feature flag strategy and release toggling consulting by Alex Chen. Built for high-velocity engineering teams.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex items-center justify-center hover:bg-primary/10 transition-all group" title="Google">
                             <svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
@@ -316,7 +388,7 @@
                 </div>
             </div>
             <div class="pt-12 border-t border-slate-200 dark:border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs">
-                <p>&copy;2026 FlagMasters Consulting. All rights reserved.</p>
+                <p>&copy;2026 Alex Chen (FlagMasters Consulting). All rights reserved.</p>
                 <div class="flex items-center space-x-6 mt-4 md:mt-0">
                     <div class="flex space-x-6">
                         <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>

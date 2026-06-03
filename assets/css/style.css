@@ -503,3 +503,25 @@ header.scrolled, header.menu-open {
 header.sticky {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
+
+/* Typography Weight Enforcements: Headings < 600, Paragraphs/Subheadings 400-550 */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 500 !important; /* Enforces weight strictly below 600 (Medium) */
+}
+
+p, .paragraph, .subtitle, .subheading, .section-subtitle {
+    font-weight: 400; /* Base paragraph weight */
+}
+
+/* Limit all bold/semibold subheadings, labels, paragraph texts, and inline text weights to 500 (Medium) */
+p.font-bold, p.font-semibold,
+p .font-bold, p .font-semibold,
+.subheading.font-bold, .subheading.font-semibold,
+.section-subtitle.font-bold, .section-subtitle.font-semibold,
+span.inline-block.rounded-full.font-bold,
+span.inline-block.rounded-full.font-semibold,
+.case-study-highlight span.font-bold,
+.case-study-highlight span.font-semibold {
+    font-weight: 500 !important; /* Fits inside the 400-550 range */
+}
