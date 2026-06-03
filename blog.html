@@ -51,8 +51,8 @@
                     <a href="services.html" class="nav-link font-medium hover:text-primary">Services</a>
                     <a href="case-studies.html" class="nav-link font-medium hover:text-primary">Case Studies</a>
                     <a href="blog.html" class="nav-link font-medium text-primary">Blog</a>
-                    <a href="dashboard.html" class="nav-link font-medium hover:text-primary">Dashboard</a>
                     <a href="contact.html" class="nav-link font-medium hover:text-primary">Contact</a>
+                    <a href="dashboard.html" class="nav-link font-medium hover:text-primary">Dashboard</a>
                 </div>
             </div>
 
@@ -85,8 +85,8 @@
             <a href="services.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Services</a>
             <a href="case-studies.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Case Studies</a>
             <a href="blog.html" class="text-lg font-medium text-primary transition-colors">Blog</a>
-            <a href="dashboard.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Dashboard</a>
             <a href="contact.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Contact</a>
+            <a href="dashboard.html" class="text-lg font-medium text-slate-900 dark:text-slate-100 hover:text-primary transition-colors">Dashboard</a>
             <div class="pt-4 flex flex-col space-y-3">
                 <a href="login.html" class="w-full py-4 bg-primary text-white text-center rounded-2xl font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.02] transition-all active:scale-[0.98]">Login</a>
                 <div class="flex items-center justify-center space-x-4 pt-4 border-t border-slate-200 dark:border-slate-800">
@@ -125,57 +125,57 @@
             <div class="container mx-auto px-6 relative z-10">
                 <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
                     <!-- Article 1 -->
-                    <article class="glass-card rounded-3xl overflow-hidden reveal delay-100 group">
+                    <article class="glass-card rounded-3xl overflow-hidden reveal delay-100 group flex flex-col">
                         <div class="relative overflow-hidden aspect-video">
                             <img src="assets/images/blog-1.png" alt="Article 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Engineering</div>
                         </div>
-                        <div class="p-8">
+                        <div class="p-8 flex flex-col flex-1">
                             <div class="flex items-center space-x-4 text-xs text-slate-500 mb-4">
                                 <span class="flex items-center space-x-1"><i data-lucide="calendar" class="w-3 h-3"></i> <span>May 12, 2026</span></span>
                                 <span class="flex items-center space-x-1"><i data-lucide="clock" class="w-3 h-3"></i> <span>8 min read</span></span>
                             </div>
                             <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors line-clamp-2">Mastering Canary Releases in Kubernetes</h3>
                             <p class="text-slate-500 text-sm mb-6 line-clamp-3">Learn how to implement a sophisticated traffic splitting strategy using Istio and LaunchDarkly for your K8s clusters.</p>
-                            <a href="#" class="text-primary font-bold flex items-center space-x-2 group/link">
+                            <a href="#" class="text-primary font-bold flex items-center space-x-2 group/link mt-auto">
                                 <span class="group-hover/link:underline transition-all">Read More</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 transform transition-transform group-hover/link:translate-x-2"></i>
                             </a>
                         </div>
                     </article>
                     <!-- Article 2 -->
-                    <article class="glass-card rounded-3xl overflow-hidden reveal delay-200 group">
+                    <article class="glass-card rounded-3xl overflow-hidden reveal delay-200 group flex flex-col">
                         <div class="relative overflow-hidden aspect-video">
                             <img src="assets/images/blog-2.png" alt="Article 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 left-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">Strategy</div>
                         </div>
-                        <div class="p-8">
+                        <div class="p-8 flex flex-col flex-1">
                             <div class="flex items-center space-x-4 text-xs text-slate-500 mb-4">
                                 <span class="flex items-center space-x-1"><i data-lucide="calendar" class="w-3 h-3"></i> <span>May 08, 2026</span></span>
                                 <span class="flex items-center space-x-1"><i data-lucide="clock" class="w-3 h-3"></i> <span>12 min read</span></span>
                             </div>
                             <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors line-clamp-2">The Hidden Cost of Feature Flag Debt</h3>
                             <p class="text-slate-500 text-sm mb-6 line-clamp-3">Why stale flags are the new technical debt and how to implement an automated cleanup workflow.</p>
-                            <a href="#" class="text-primary font-bold flex items-center space-x-2 group/link">
+                            <a href="#" class="text-primary font-bold flex items-center space-x-2 group/link mt-auto">
                                 <span class="group-hover/link:underline transition-all">Read More</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 transform transition-transform group-hover/link:translate-x-2"></i>
                             </a>
                         </div>
                     </article>
                     <!-- Article 3 -->
-                    <article class="glass-card rounded-3xl overflow-hidden reveal delay-300 group md:col-span-2 xl:col-span-1 md:max-w-md md:mx-auto xl:max-w-none xl:mx-0">
+                    <article class="glass-card rounded-3xl overflow-hidden reveal delay-300 group md:col-span-2 xl:col-span-1 md:max-w-md md:mx-auto xl:max-w-none xl:mx-0 flex flex-col">
                         <div class="relative overflow-hidden aspect-video">
                             <img src="assets/images/blog-3.png" alt="Article 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">DevOps</div>
                         </div>
-                        <div class="p-8">
+                        <div class="p-8 flex flex-col flex-1">
                             <div class="flex items-center space-x-4 text-xs text-slate-500 mb-4">
                                 <span class="flex items-center space-x-1"><i data-lucide="calendar" class="w-3 h-3"></i> <span>Apr 28, 2026</span></span>
                                 <span class="flex items-center space-x-1"><i data-lucide="clock" class="w-3 h-3"></i> <span>6 min read</span></span>
                             </div>
                             <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors line-clamp-2">Decoupling Deployment from Release</h3>
                             <p class="text-slate-500 text-sm mb-6 line-clamp-3">A cultural guide for product teams moving from waterfall releases to continuous feature delivery.</p>
-                            <a href="#" class="text-primary font-bold flex items-center space-x-2 group/link">
+                            <a href="#" class="text-primary font-bold flex items-center space-x-2 group/link mt-auto">
                                 <span class="group-hover/link:underline transition-all">Read More</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 transform transition-transform group-hover/link:translate-x-2"></i>
                             </a>
