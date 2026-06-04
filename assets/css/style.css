@@ -316,21 +316,24 @@ header.scrolled, header.menu-open {
 }
 
 .hero-section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    min-height: 60vh !important;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
     .hero-section {
-        padding-top: 8rem;
-        padding-bottom: 8rem;
+        min-height: 65vh !important;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
 }
 
 @media (min-width: 1024px) {
     .hero-section {
-        padding-top: 14rem;
-        padding-bottom: 14rem;
+        min-height: 70vh !important;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
     }
 }
 
