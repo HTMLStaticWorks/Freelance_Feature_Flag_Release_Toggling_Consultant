@@ -504,17 +504,45 @@ header.sticky {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-/* Typography Weight Enforcements: Headings < 600, Paragraphs/Subheadings 400-550 */
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: 500 !important; /* Enforces weight strictly below 600 (Medium) */
-}
+/* ============================================================
+   Typography Weight Hierarchy
+   Rule: Headings < 600 | Paragraphs & Subheadings 400–550
+   ============================================================ */
 
-p, .paragraph, .subtitle, .subheading, .section-subtitle {
+/* H1 & H2 — Primary headings: strong but under 600 */
+h1, .h1 { font-weight: 580 !important; }
+h2, .h2 { font-weight: 560 !important; }
+
+/* H3 & H4 — Section/card headings: medium emphasis */
+h3, .h3 { font-weight: 500 !important; }
+h4, .h4 { font-weight: 500 !important; }
+
+/* H5 & H6 — Labels/fine headings: lighter touch */
+h5, .h5 { font-weight: 450 !important; }
+h6, .h6 { font-weight: 450 !important; }
+
+/* Body paragraphs — base readability weight */
+p, .paragraph {
     font-weight: 400; /* Base paragraph weight */
 }
 
-/* Limit all bold/semibold subheadings, labels, paragraph texts, and inline text weights to 500 (Medium) */
+/* Subheadings, subtitles, section labels — within 400–550 */
+.subtitle, .subheading, .section-subtitle {
+    font-weight: 450;
+}
+
+/* Override Tailwind bold/semibold on headings to stay below 600 */
+h1.font-bold, h2.font-bold, h1.font-semibold, h2.font-semibold {
+    font-weight: 580 !important;
+}
+h3.font-bold, h4.font-bold, h3.font-semibold, h4.font-semibold {
+    font-weight: 500 !important;
+}
+h5.font-bold, h6.font-bold, h5.font-semibold, h6.font-semibold {
+    font-weight: 450 !important;
+}
+
+/* Cap Tailwind bold/semibold on paragraphs, spans, badges — within 400–550 */
 p.font-bold, p.font-semibold,
 p .font-bold, p .font-semibold,
 .subheading.font-bold, .subheading.font-semibold,
@@ -523,5 +551,5 @@ span.inline-block.rounded-full.font-bold,
 span.inline-block.rounded-full.font-semibold,
 .case-study-highlight span.font-bold,
 .case-study-highlight span.font-semibold {
-    font-weight: 500 !important; /* Fits inside the 400-550 range */
+    font-weight: 500 !important; /* Capped within the 400–550 range */
 }
