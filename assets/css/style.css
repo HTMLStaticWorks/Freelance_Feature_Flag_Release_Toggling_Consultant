@@ -316,24 +316,29 @@ header.scrolled, header.menu-open {
 }
 
 .hero-section {
-    min-height: 60vh !important;
-    padding-top: 4rem;
+    min-height: 80vh !important;
+    padding-top: 8rem !important;
     padding-bottom: 4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
     .hero-section {
-        min-height: 65vh !important;
-        padding-top: 5rem;
+        min-height: 80vh !important;
+        padding-top: 9rem !important;
         padding-bottom: 5rem;
+        align-items: flex-start;
     }
 }
 
 @media (min-width: 1024px) {
     .hero-section {
-        min-height: 70vh !important;
-        padding-top: 8rem;
+        min-height: 80vh !important;
+        padding-top: 8rem !important;
         padding-bottom: 8rem;
+        align-items: center;
     }
 }
 
