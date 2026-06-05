@@ -342,6 +342,39 @@ header.scrolled, header.menu-open {
     }
 }
 
+/* Enforced identical hero heights */
+.home-hero {
+    min-height: 85vh !important;
+}
+
+.sub-hero {
+    min-height: 55vh !important;
+}
+
+@media (max-width: 768px) {
+    .home-hero {
+        min-height: 85vh !important;
+    }
+    .sub-hero {
+        min-height: 55vh !important;
+    }
+}
+
+/* Prevent people from being cropped out of hero images */
+.hero-img-about {
+    object-position: 25% 30% !important;
+}
+
+.hero-img-contact {
+    object-position: center 30% !important;
+}
+
+@media (max-width: 640px) {
+    .hero-img-contact {
+        object-position: 50% 30% !important;
+    }
+}
+
 .case-study-highlight {
     background: linear-gradient(135deg, rgba(109, 94, 243, 0.08) 0%, rgba(15, 23, 42, 0.03) 100%);
     border: 1px solid rgba(109, 94, 243, 0.2);
