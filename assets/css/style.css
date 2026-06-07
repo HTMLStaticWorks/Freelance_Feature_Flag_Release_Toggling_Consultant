@@ -335,28 +335,43 @@ header.scrolled, header.menu-open {
 
 @media (min-width: 1024px) {
     .hero-section {
-        min-height: 80vh !important;
-        padding-top: 8rem !important;
-        padding-bottom: 8rem;
+        min-height: 75vh !important;
+        padding-top: 7.5rem !important;
+        padding-bottom: 6rem;
         align-items: center;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .hero-section {
+        min-height: 70vh !important;
+        padding-top: 6.5rem !important;
+        padding-bottom: 4.5rem;
     }
 }
 
 /* Enforced identical hero heights */
 .home-hero {
-    min-height: 85vh !important;
+    min-height: 80vh !important;
 }
 
 .sub-hero {
     min-height: 55vh !important;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%) !important;
 }
 
 @media (max-width: 768px) {
     .home-hero {
-        min-height: 85vh !important;
+        min-height: 80vh !important;
     }
     .sub-hero {
         min-height: 55vh !important;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .home-hero {
+        min-height: 75vh !important;
     }
 }
 
